@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TGC.StockGame.Api", "TGC.StockGame.Api\TGC.StockGame.Api.csproj", "{F4446D27-5719-4E84-BE4B-055718A562FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TGC.StockGame.TestConsole", "TGC.StockGame.TestConsole\TGC.StockGame.TestConsole.csproj", "{9F3CF95C-2782-43A8-893E-C07F8D186BA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TGC.StockGame.Core", "TGC.StockGame.Core\TGC.StockGame.Core.csproj", "{7C2E3158-CEE2-4C30-81AC-6F1055BC10CF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4446D27-5719-4E84-BE4B-055718A562FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4446D27-5719-4E84-BE4B-055718A562FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4446D27-5719-4E84-BE4B-055718A562FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4446D27-5719-4E84-BE4B-055718A562FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F3CF95C-2782-43A8-893E-C07F8D186BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F3CF95C-2782-43A8-893E-C07F8D186BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F3CF95C-2782-43A8-893E-C07F8D186BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F3CF95C-2782-43A8-893E-C07F8D186BA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C2E3158-CEE2-4C30-81AC-6F1055BC10CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C2E3158-CEE2-4C30-81AC-6F1055BC10CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C2E3158-CEE2-4C30-81AC-6F1055BC10CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C2E3158-CEE2-4C30-81AC-6F1055BC10CF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,6 @@
+@TGC.StockGame.Api_HostAddress = http://localhost:5135
+
+GET {{TGC.StockGame.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
