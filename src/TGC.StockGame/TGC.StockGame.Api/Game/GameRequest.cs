@@ -1,10 +1,9 @@
 ﻿using TGC.StockGame.Core.Game;
-using TGC.StockGame.Core.Presentation;
 
 namespace TGC.StockGame.Api.Game;
 
-public class GameRequest : IGameRequest
+public record GameRequest
 {
-	public string Name { get; set; }
-	public IEnumerable<PlayerRequest> Players { get; set; }
+	public string Name { get; set; } = "";
+	public IEnumerable<PlayerRequest> Players { get; set; } = [];
 }

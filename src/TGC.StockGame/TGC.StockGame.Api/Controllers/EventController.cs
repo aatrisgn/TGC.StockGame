@@ -9,8 +9,8 @@ public class EventController: CustomBaseController
 	[Route("games/{id:guid}/events")]
 	[ProducesResponseType(typeof(EventResponse), StatusCodes.Status200OK)]
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
-	public async Task<EventResponse> CreateNewEventAsync()
+	public Task<EventResponse> CreateNewEventAsync()
 	{
-		
+		return Task.FromResult(new EventResponse());
 	}
 }

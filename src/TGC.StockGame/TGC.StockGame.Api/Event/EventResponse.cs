@@ -2,5 +2,5 @@
 
 public class EventResponse
 {
-	
+	public string? some { get; set; }
 }

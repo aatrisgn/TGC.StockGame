@@ -4,5 +4,5 @@ namespace TGC.StockGame.Core.Game;
 
 public interface IGameService
 {
-	GameEntity NewGame(IGameRequest gameSpecification);
+	GameEntity NewGame(GameRequest gameSpecification);
 }

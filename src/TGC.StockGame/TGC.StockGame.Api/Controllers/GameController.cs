@@ -9,26 +9,26 @@ public class GameController : CustomBaseController
 	[Route("games")]
 	[ProducesResponseType(typeof(IEnumerable<GameResponse>), StatusCodes.Status200OK)]
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
-	public async Task<IEnumerable<GameResponse>> GetAllGamesAsync()
+	public Task<IEnumerable<GameResponse>> GetAllGamesAsync()
 	{
-		
+		return Task.FromResult(new List<GameResponse>());
 	}
 
 	[HttpGet]
 	[Route("games/{id:guid}")]
 	[ProducesResponseType(typeof(GameResponse), StatusCodes.Status200OK)]
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
-	public async Task<GameResponse> GetGameById(Guid id)
+	public Task<GameResponse> GetGameById(Guid id)
 	{
-		
+		return Task.FromResult(new GameResponse());
 	}
 
 	[HttpPost]
 	[Route("games")]
 	[ProducesResponseType(typeof(GameResponse), StatusCodes.Status200OK)]
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
-	public async Task<GameResponse> CreateNewGame()
+	public Task<GameResponse> CreateNewGame()
 	{
-		
+		return Task.FromResult(new GameResponse());
 	}
 }
