@@ -1,7 +1,8 @@
 from pydantic import BaseModel
 
-class Game(BaseModel):
+class GameEntity(BaseModel):
     id: str
     name: str
     day: int = 0
     state: dict = {}
+    counter: int

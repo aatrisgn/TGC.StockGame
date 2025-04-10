@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from python.api.game import router as game_router
+from api.game import router as game_router
 
 app = FastAPI(title="Game API")
 

@@ -1,9 +1,16 @@
 from fastapi import APIRouter, HTTPException
-from python.schemas.game import GameSchema, GameCreateResponse
-from python.services.game_service import GameService
+from schemas.game import GameSchema, GameCreateResponse
+from services.game_service import GameService
 
 router = APIRouter()
 service = GameService()
+
+@router.get("/", response_model=GameSchema)
+def get_game():
+    game = service.get_game()
+    if not game:
+        raise HTTPException(status_code=404, detail="Game not found")
+    return game
 
 @router.post("/", response_model=GameCreateResponse)
 def create_game():
