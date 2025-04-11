@@ -19,16 +19,19 @@ public class AssetProgressionService : IAssetProgressionService
 		var previousPrice = stock.AssetData.Single(a => a.Iteration == (iteration - 1)).PriceIndex;
 		
 		// 50/50 whether price goes up or down. 1/10 distribution of price change.
-		float newPrice = 100;
+		int newPrice = 100;
 		if (previousPrice > 0)
 		{
-			newPrice = previousPrice + GetProgressionFactor();
+			newPrice = (int)Math.Round(previousPrice + GetProgressionFactor());
 		}
+		
+		stock.PreviousPrice = stock.CurrentPrice;
+		stock.CurrentPrice = (int)(((float)newPrice / 100) * stock.IndexPrice);
 		
 		stock.AssetData.Add(new AssetPrice
 		{
 			Iteration = iteration,
-			PriceIndex = (int)Math.Round(newPrice)
+			PriceIndex = newPrice
 		});
 		
 		return Task.CompletedTask;

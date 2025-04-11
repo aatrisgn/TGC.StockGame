@@ -1,73 +1,35 @@
-<app-card cardTitle="Cap I Talism 20" [options]="false" blockClass="table-border-style">
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Current Price ($)</th>
-          <th>Price Change (Up/Down)</th>
-          <th>10 % MV</th>
-          <th>20 % MV</th>
-          <th>50 % MV</th>
-          <th>Total Market Value (MV)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>Juicy Fruit</th>
-          <td>10 $</td>
-          <td style="color: red;">Down <i class="feather icon-arrow-down"></i></td>
-          <td>$1.000.000</td>
-          <td>$2.000.000</td>
-          <td>$5.000.000</td>
-          <td>$10.000.000</td>
-        </tr>
-        <tr>
-          <th>Kangaroo Travel</th>
-          <td>20 $</td>
-          <td style="color: green;">Up <i class="feather icon-arrow-up"></i></td>
-          <td>$2.000.000</td>
-          <td>$4.000.000</td>
-          <td>$10.000.000</td>
-          <td>$20.000.000</td>
-        </tr>
-        <tr>
-          <th>Juicy Fruit</th>
-          <td>10 $</td>
-          <td style="color: red;">Down <i class="feather icon-arrow-down"></i></td>
-          <td>$1.000.000</td>
-          <td>$2.000.000</td>
-          <td>$5.000.000</td>
-          <td>$10.000.000</td>
-        </tr>
-        <tr>
-          <th>Kangaroo Travel</th>
-          <td>20 $</td>
-          <td style="color: green;">Up <i class="feather icon-arrow-up"></i></td>
-          <td>$2.000.000</td>
-          <td>$4.000.000</td>
-          <td>$10.000.000</td>
-          <td>$20.000.000</td>
-        </tr>
-        <tr>
-          <th>Juicy Fruit</th>
-          <td>10 $</td>
-          <td style="color: red;">Down <i class="feather icon-arrow-down"></i></td>
-          <td>$1.000.000</td>
-          <td>$2.000.000</td>
-          <td>$5.000.000</td>
-          <td>$10.000.000</td>
-        </tr>
-        <tr>
-          <th>Kangaroo Travel</th>
-          <td>20 $</td>
-          <td style="color: green;">Up <i class="feather icon-arrow-up"></i></td>
-          <td>$2.000.000</td>
-          <td>$4.000.000</td>
-          <td>$10.000.000</td>
-          <td>$20.000.000</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</app-card>
+<div *ngIf="currentGameId !== ''">
+  <app-card cardTitle="Cap I Talism 20" [options]="false" blockClass="table-border-style">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Index Price ($)</th>
+            <th>Current Price ($)</th>
+            <th>Previous Price ($)</th>
+            <th>10 % MV</th>
+            <th>20 % MV</th>
+            <th>50 % MV</th>
+            <th>Total Market Value (MV)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let row of gameData?.stocks">
+            <td>{{ row.assetName }}</td>
+            <td>{{ formatAsCurrency(row.indexPrice!) }}</td>
+            <td [style.color]="row.previousPrice! < row.currentPrice! ? 'green' : 'red'">
+              <span *ngIf="row.previousPrice! < row.currentPrice!">{{ formatAsCurrency(row.currentPrice!) }} <i class="feather icon-arrow-up"></i></span>
+              <span *ngIf="row.previousPrice! >= row.currentPrice!">{{ formatAsCurrency(row.currentPrice!) }} <i class="feather icon-arrow-down"></i></span>
+            </td>
+            <td>{{ formatAsCurrency(row.previousPrice!) }}</td>
+            <td>{{ formatAsCurrency(row.marketCap10!) }}</td>
+            <td>{{ formatAsCurrency(row.marketCap20!) }}</td>
+            <td>{{ formatAsCurrency(row.marketCap50!) }}</td>
+            <td>{{ formatAsCurrency(row.marketCap100!) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </app-card>
+</div>

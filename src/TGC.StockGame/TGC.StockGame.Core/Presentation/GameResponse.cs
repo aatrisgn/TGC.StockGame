@@ -16,6 +16,7 @@ public class GameResponse
 	{
 		return new GameResponse
 		{
+			Id = newGame.Id,
 			Name = newGame.Name,
 			Inflation = newGame.Inflation,
 			Players = newGame.Players,

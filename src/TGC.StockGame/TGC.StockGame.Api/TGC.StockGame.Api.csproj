@@ -5,10 +5,17 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<NSwagConfigurationFile>NSwagConfiguration.json</NSwagConfigurationFile>
+		<buildAngularClient>true</buildAngularClient>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+		<PackageReference Include="NSwag.AspNetCore" Version="14.2.0" />
+		<PackageReference Include="NSwag.MSBuild" Version="14.2.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
         <PackageReference Include="TGC.AzureTableStorage" Version="0.7.0" />
         <PackageReference Include="TGC.CSharpCodingStandards" Version="2.1.0" />
     </ItemGroup>
@@ -22,5 +29,9 @@
     <ItemGroup>
       <ProjectReference Include="..\TGC.StockGame.Core\TGC.StockGame.Core.csproj" />
     </ItemGroup>
+
+	<Target Name="NSwag" Condition="'$(buildAngularClient)' == 'true'" AfterTargets="Build">
+		<Exec EnvironmentVariables="ASPNETCORE_ENVIRONMENT=Development" Command="$(NSwagExe_Net80) run $(NSwagConfigurationFile) /variables:OutputPath=$(OutputPath)" />
+	</Target>
 
 </Project>

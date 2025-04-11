@@ -18,6 +18,7 @@ if (app.Environment.IsDevelopment())
 {
 	app.UseSwagger();
 	app.UseSwaggerUI();
+	app.UseCors("ALLOW_DEVELOPMENT_CORS_ORIGINS_POLICY");
 }
 
 app.UseHttpsRedirection();
