@@ -3,7 +3,7 @@ using TGC.StockGame.Api.Event;
 
 namespace TGC.StockGame.Api.Controllers;
 
-public class EventController: CustomBaseController
+public class EventController : CustomBaseController
 {
 	[HttpPut]
 	[Route("games/{id:guid}/events")]

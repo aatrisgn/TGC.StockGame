@@ -26,7 +26,7 @@ public class AssetFactory : IAssetFactory
 
 		for (var i = 0 ; i < startStockNames.Length ; i++)
 		{
-			assets[i] = BuildStartAsset(startStockNames[0]);
+			assets[i] = BuildStartAsset(startStockNames[i]);
 		}
 		
 		return assets;
