@@ -347,7 +347,7 @@ export class GameClient {
         return _observableOf(null as any);
     }
 
-    progressGame(id: string): Observable<GameResponse> {
+    progressGame(id: string): Observable<GameProgressResponse> {
         let url_ = this.baseUrl + "/api/games/{id}/progress";
         if (id === undefined || id === null)
             throw new Error("The parameter 'id' must be defined.");
@@ -369,14 +369,14 @@ export class GameClient {
                 try {
                     return this.processProgressGame(response_ as any);
                 } catch (e) {
-                    return _observableThrow(e) as any as Observable<GameResponse>;
+                    return _observableThrow(e) as any as Observable<GameProgressResponse>;
                 }
             } else
-                return _observableThrow(response_) as any as Observable<GameResponse>;
+                return _observableThrow(response_) as any as Observable<GameProgressResponse>;
         }));
     }
 
-    protected processProgressGame(response: HttpResponseBase): Observable<GameResponse> {
+    protected processProgressGame(response: HttpResponseBase): Observable<GameProgressResponse> {
         const status = response.status;
         const responseBlob =
             response instanceof HttpResponse ? response.body :
@@ -405,7 +405,7 @@ export class GameClient {
             return blobToText(responseBlob).pipe(_observableMergeMap((_responseText: string) => {
             let result200: any = null;
             let resultData200 = _responseText === "" ? null : JSON.parse(_responseText, this.jsonParseReviver);
-            result200 = GameResponse.fromJS(resultData200);
+            result200 = GameProgressResponse.fromJS(resultData200);
             return _observableOf(result200);
             }));
         } else if (status === 400) {
@@ -838,6 +838,46 @@ export class PlayerRequest implements IPlayerRequest {
 
 export interface IPlayerRequest {
     name?: string | undefined;
+}
+
+export class GameProgressResponse implements IGameProgressResponse {
+    newsMessage?: string;
+    game?: GameResponse;
+
+    constructor(data?: IGameProgressResponse) {
+        if (data) {
+            for (var property in data) {
+                if (data.hasOwnProperty(property))
+                    (<any>this)[property] = (<any>data)[property];
+            }
+        }
+    }
+
+    init(_data?: any) {
+        if (_data) {
+            this.newsMessage = _data["newsMessage"];
+            this.game = _data["game"] ? GameResponse.fromJS(_data["game"]) : <any>undefined;
+        }
+    }
+
+    static fromJS(data: any): GameProgressResponse {
+        data = typeof data === 'object' ? data : {};
+        let result = new GameProgressResponse();
+        result.init(data);
+        return result;
+    }
+
+    toJSON(data?: any) {
+        data = typeof data === 'object' ? data : {};
+        data["newsMessage"] = this.newsMessage;
+        data["game"] = this.game ? this.game.toJSON() : <any>undefined;
+        return data;
+    }
+}
+
+export interface IGameProgressResponse {
+    newsMessage?: string;
+    game?: GameResponse;
 }
 
 export class SwaggerException extends Error {

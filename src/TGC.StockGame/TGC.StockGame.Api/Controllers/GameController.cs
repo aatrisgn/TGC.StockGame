@@ -42,9 +42,9 @@ public class GameController : CustomBaseController
 
 	[HttpPut]
 	[Route("games/{id:guid}/progress")]
-	[ProducesResponseType(typeof(GameResponse), StatusCodes.Status200OK)]
+	[ProducesResponseType(typeof(GameProgressResponse), StatusCodes.Status200OK)]
 	[ProducesResponseType(StatusCodes.Status400BadRequest)]
-	public async Task<GameResponse> ProgressGame(Guid id)
+	public async Task<GameProgressResponse> ProgressGame(Guid id)
 	{
 		var progressedGame = await _gameService.ProgressGameAsync(id);
 		return progressedGame;

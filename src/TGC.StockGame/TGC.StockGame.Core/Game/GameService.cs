@@ -42,7 +42,7 @@ public class GameService : IGameService
 		return allGames.Select(GameResponse.FromEntity);
 	}
 
-	public async Task<GameResponse> ProgressGameAsync(Guid id)
+	public async Task<GameProgressResponse> ProgressGameAsync(Guid id)
 	{
 		GameEntity gameToProgress = await _gameRepository.GetGameByIdAsync(id);
 		
@@ -57,7 +57,15 @@ public class GameService : IGameService
 		await _assetProgressionService.ProgessInterestRateAsync(gameToProgress, gameToProgress.Iteration);
 		await _assetProgressionService.ProgessMortgageIndexAsync(gameToProgress, gameToProgress.Iteration);
 
-		return GameResponse.FromEntity(gameToProgress);
+		var gameResponse = GameResponse.FromEntity(gameToProgress);
+
+		var gameProgressResponse = new GameProgressResponse
+		{
+			Game = gameResponse,
+			NewsMessage = "Markets are volatile! Orange man did bad!"
+		};
+
+		return gameProgressResponse;
 	}
 
 	public async Task<GameResponse> GetGameByIdAsync(Guid id)

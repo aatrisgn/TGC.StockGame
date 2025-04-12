@@ -16,6 +16,6 @@ public class AssetEntity
 
 	private int GetPercentageMarketCap(int percentage)
 	{
-		return IndexPrice * percentage;
+		return CurrentPrice * percentage;
 	}
 }

@@ -12,10 +12,11 @@ import { ApexOptions, ChartComponent, NgApexchartsModule } from 'ng-apexcharts';
 import { TemperatureSummaryComponent } from "../../components/temperature-summary/temperature-summary.component";
 import { StockTableComponent } from 'src/app/components/stock-table/stock-table.component';
 import { GameTableComponent } from "../../components/game-table/game-table.component";
+import { AddGameComponent } from "../../components/add-game/add-game.component";
 @Component({
   selector: 'app-dash-analytics',
   standalone: true,
-  imports: [SharedModule, NgApexchartsModule, StockTableComponent, TemperatureSummaryComponent, GameTableComponent],
+  imports: [SharedModule, NgApexchartsModule, StockTableComponent, TemperatureSummaryComponent, GameTableComponent, AddGameComponent],
   providers: [],
   templateUrl: './dash-analytics.component.html',
   styleUrls: ['./dash-analytics.component.scss']

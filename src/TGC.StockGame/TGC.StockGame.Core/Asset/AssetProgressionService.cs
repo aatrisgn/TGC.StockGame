@@ -11,18 +11,24 @@ public class AssetProgressionService : IAssetProgressionService
 	
 	public Task ProgressStockAsync(AssetEntity stock, int iteration)
 	{
-		// Should be changed to other distribution
-		var upDown = random.Next(1, 3);
-		int priceChange = random.Next(1, 11);
-		
 		// Fetch previous price by index. Could be better
 		var previousPrice = stock.AssetData.Single(a => a.Iteration == (iteration - 1)).PriceIndex;
 		
 		// 50/50 whether price goes up or down. 1/10 distribution of price change.
-		int newPrice = 100;
-		if (previousPrice > 0)
+		int newPrice = (int)Math.Round(previousPrice + GetProgressionFactor());
+		if (previousPrice <= 0)
 		{
-			newPrice = (int)Math.Round(previousPrice + GetProgressionFactor());
+			newPrice = 100;
+		}
+
+		if (previousPrice >= 250 && newPrice >= 250)
+		{
+			newPrice = 250;
+		}
+
+		if (newPrice >= 250)
+		{
+			newPrice = 250;
 		}
 		
 		stock.PreviousPrice = stock.CurrentPrice;
@@ -59,11 +65,12 @@ public class AssetProgressionService : IAssetProgressionService
 
 		int progressionFactor = priceChange switch
 		{
-			< 30 => 10,
-			< 60 => 20,
-			< 80 => 30,
-			< 90 => 40,
-			>= 90 => 50
+			< 35 => 0,
+			< 65 => 10,
+			< 85 => 20,
+			< 92 => 30,
+			< 97 => 40,
+			>= 97 => 50
 		};
 
 		return CalculateProgressionFactor(progressionFactor, upDown);

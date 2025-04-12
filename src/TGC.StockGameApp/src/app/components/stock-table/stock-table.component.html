@@ -1,13 +1,13 @@
 <div *ngIf="currentGameId !== ''">
-  <app-card cardTitle="Cap I Talism 20" [options]="false" blockClass="table-border-style">
+  <app-card cardTitle="Cap Italism Stock Index" [options]="false" blockClass="table-border-style">
     <div class="table-responsive">
       <table class="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
-            <th>Index Price ($)</th>
-            <th>Current Price ($)</th>
-            <th>Previous Price ($)</th>
+            <th>Index Price</th>
+            <th>Current Price</th>
+            <th>Previous Price</th>
             <th>10 % MV</th>
             <th>20 % MV</th>
             <th>50 % MV</th>
@@ -31,5 +31,6 @@
         </tbody>
       </table>
     </div>
+    <app-progress-stocks-button/>
   </app-card>
 </div>

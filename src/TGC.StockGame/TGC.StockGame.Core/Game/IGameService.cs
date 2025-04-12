@@ -6,6 +6,6 @@ public interface IGameService
 {
 	Task<GameResponse> NewGameAsync(GameRequest gameSpecification);
 	Task<IEnumerable<GameResponse>> GetAllGamesAsync();
-	Task<GameResponse> ProgressGameAsync(Guid id);
+	Task<GameProgressResponse> ProgressGameAsync(Guid id);
 	Task<GameResponse> GetGameByIdAsync(Guid id);
 }

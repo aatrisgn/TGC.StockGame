@@ -12,18 +12,28 @@ import { SharedModule } from 'src/app/theme/shared/shared.module';
   standalone: true
 })
 export class GameTableComponent {
-  constructor(private gameClient:GameClient, private currentGameStateService:CurrentGameState){}
+  constructor(private gameClient:GameClient, private currentGameStateService:CurrentGameState){
+    this.currentGameStateService.$newGameAddedEvent.subscribe(data => {
+      this.loadAllGames();
+    });
+  }
 
   public allGames:GameResponse[] | undefined;
 
   ngOnInit(){
+    this.loadAllGames();
+  }
+
+  loadAllGames(){
     this.gameClient.getAllGames().subscribe(response => {
       this.allGames = response;
     })
   }
 
   setCurrentGameId(id:string){
-    console.log(id);
-    this.currentGameStateService.setGameId(id);
+    this.gameClient.getGameById(id).subscribe(response => {
+      this.currentGameStateService.setGameId(id);
+      this.currentGameStateService.emitReloadGameEvent(response);
+    })
   }
 }
