@@ -40,7 +40,7 @@ export function MSALInstanceFactory(configService:ConfigurationLoaderService): I
 export function MSALInterceptorConfigFactory(): MsalInterceptorConfiguration {
   const protectedResourceMap = new Map<string, Array<string>>();
   protectedResourceMap.set(
-    "http://localhost:5298",//environment.apiConfig.uri,
+    "http://localhost:5135",//environment.apiConfig.uri,
     ["api://7e4b8c41-76fd-4f2e-84f7-fbf7541f685b/test"]//environment.apiConfig.scopes
   );
 

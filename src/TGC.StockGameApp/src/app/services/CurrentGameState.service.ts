@@ -12,10 +12,6 @@ export class CurrentGameState {
   $gameProgressedEvent:Subject<GameResponse> = new Subject<GameResponse>()
   $newGameAddedEvent:Subject<GameResponse> = new Subject<GameResponse>()
 
-  constructor() {
-    console.log('Singleton service instance created');
-  }
-
   setGameId(id:string): void {
     this.gameId = id;
     localStorage.setItem(this.localStorageKey, id);
@@ -26,8 +22,6 @@ export class CurrentGameState {
   }
 
   emitProgressEvent(gameRequest:GameResponse){
-    console.log("Trying to emit:")
-    console.log(gameRequest)
     this.$gameProgressedEvent.next(gameRequest);
   }
 

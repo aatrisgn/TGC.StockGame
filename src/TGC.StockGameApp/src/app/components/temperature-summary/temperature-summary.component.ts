@@ -61,8 +61,12 @@ export class TemperatureSummaryComponent {
     dataLabels: {
       enabled: false
     },
+    theme: {
+      mode: 'dark'
+    },
     stroke: {
-      curve: 'straight'
+      curve: 'straight',
+      width: 3
     },
     colors: ['#FF6F61', '#6A67CE', '#FFD66B', '#34C759', '#FF9AA2', '#3AA7A3'],
     series: [

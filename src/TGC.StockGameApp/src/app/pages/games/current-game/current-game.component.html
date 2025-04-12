@@ -1,4 +1,9 @@
 <div class="row">
+  <app-popup-overlay [isVisible]="showPopup">
+    <h2>Changes in stock market!</h2>
+    <p>{{ progressionMessage }}</p>
+    <button (click)="showPopup = false">Continue</button>
+  </app-popup-overlay>
   <!-- account-section start -->
   <div class="col-md-12">
     <app-temperature-summary/>
@@ -6,4 +11,5 @@
   <div class="col-xl-12">
     <app-stock-table/>
   </div>
+  <app-progress-stocks-button (gameResponseEvent)="handleProgressionEvent($event)" />
 </div>
