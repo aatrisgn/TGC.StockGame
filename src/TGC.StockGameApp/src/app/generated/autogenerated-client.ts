@@ -645,6 +645,7 @@ export class AssetEntity implements IAssetEntity {
     indexPrice?: number;
     currentPrice?: number;
     previousPrice?: number;
+    lastPriceChange?: number;
     marketCap10?: number;
     marketCap20?: number;
     marketCap50?: number;
@@ -666,6 +667,7 @@ export class AssetEntity implements IAssetEntity {
             this.indexPrice = _data["indexPrice"];
             this.currentPrice = _data["currentPrice"];
             this.previousPrice = _data["previousPrice"];
+            this.lastPriceChange = _data["lastPriceChange"];
             this.marketCap10 = _data["marketCap10"];
             this.marketCap20 = _data["marketCap20"];
             this.marketCap50 = _data["marketCap50"];
@@ -691,6 +693,7 @@ export class AssetEntity implements IAssetEntity {
         data["indexPrice"] = this.indexPrice;
         data["currentPrice"] = this.currentPrice;
         data["previousPrice"] = this.previousPrice;
+        data["lastPriceChange"] = this.lastPriceChange;
         data["marketCap10"] = this.marketCap10;
         data["marketCap20"] = this.marketCap20;
         data["marketCap50"] = this.marketCap50;
@@ -709,6 +712,7 @@ export interface IAssetEntity {
     indexPrice?: number;
     currentPrice?: number;
     previousPrice?: number;
+    lastPriceChange?: number;
     marketCap10?: number;
     marketCap20?: number;
     marketCap50?: number;

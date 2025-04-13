@@ -1,7 +1,10 @@
 <div class="row">
   <app-popup-overlay [isVisible]="showPopup">
     <h2>Changes in stock market!</h2>
-    <p>{{ progressionMessage }}</p>
+    <p><b>News: </b>{{ progressionMessage }}</p>
+    <ul>
+      <li *ngFor="let row of stockChanges" [innerHTML]="row"></li>
+    </ul>
     <button (click)="showPopup = false">Continue</button>
   </app-popup-overlay>
   <!-- account-section start -->
