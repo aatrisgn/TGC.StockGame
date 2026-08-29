@@ -15,7 +15,7 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
-		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
         <PackageReference Include="TGC.AzureTableStorage" Version="0.7.0" />
         <PackageReference Include="TGC.CSharpCodingStandards" Version="2.1.0" />
     </ItemGroup>
@@ -24,10 +24,6 @@
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\TGC.StockGame.Core\TGC.StockGame.Core.csproj" />
     </ItemGroup>
 
 	<Target Name="NSwag" Condition="'$(buildAngularClient)' == 'true'" AfterTargets="Build">

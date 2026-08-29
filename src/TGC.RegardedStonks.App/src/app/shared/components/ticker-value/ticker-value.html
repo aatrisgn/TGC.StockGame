@@ -1,0 +1,11 @@
+<span
+  class="ticker-value tgc-mono-numeric"
+  [class.ticker-value--up]="direction() === 'up'"
+  [class.ticker-value--down]="direction() === 'down'"
+>
+  @if (format() === 'currency') {
+    {{ value() | currency }}
+  } @else {
+    {{ value() | number }}
+  }
+</span>

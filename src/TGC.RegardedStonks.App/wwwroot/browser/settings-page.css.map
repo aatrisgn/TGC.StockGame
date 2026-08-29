@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/features/settings/settings-page/settings-page.scss"],
+  "sourcesContent": [".settings-page {\n  padding: 1.5rem;\n  max-width: 30rem;\n\n  &__row {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 0.75rem 0;\n    border-bottom: 1px solid rgba(128, 128, 128, 0.2);\n  }\n\n  &__hint {\n    opacity: 0.6;\n    margin: 0;\n  }\n\n  &__section {\n    padding-top: 1rem;\n\n    h2 {\n      margin: 0 0 0.5rem;\n      font-size: 1rem;\n    }\n  }\n\n  &__privileges {\n    margin: 0;\n    padding-left: 1.25rem;\n\n    li {\n      padding: 0.25rem 0;\n    }\n  }\n}\n"],
+  "mappings": ";AAAA,CAAA;AACE,WAAA;AACA,aAAA;;AAEA,CAAA;AACE,WAAA;AACA,eAAA;AACA,mBAAA;AACA,WAAA,QAAA;AACA,iBAAA,IAAA,MAAA,KAAA,GAAA,EAAA,GAAA,EAAA,GAAA,EAAA;;AAGF,CAAA;AACE,WAAA;AACA,UAAA;;AAGF,CAAA;AACE,eAAA;;AAEA,CAHF,uBAGE;AACE,UAAA,EAAA,EAAA;AACA,aAAA;;AAIJ,CAAA;AACE,UAAA;AACA,gBAAA;;AAEA,CAJF,0BAIE;AACE,WAAA,QAAA;;",
+  "names": []
+}

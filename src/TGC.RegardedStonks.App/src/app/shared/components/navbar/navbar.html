@@ -1,0 +1,87 @@
+<mat-toolbar color="primary" class="navbar">
+  <a routerLink="/overview" class="navbar__brand">RegardedStonks</a>
+
+  <span class="navbar__spacer"></span>
+
+  @if (!isHandset()) {
+    <nav class="navbar__links">
+      @for (link of primaryLinks; track link.route) {
+        <a mat-button [routerLink]="link.route" routerLinkActive="navbar__link--active">
+          <mat-icon>{{ link.icon }}</mat-icon>
+          {{ link.label }}
+        </a>
+      }
+
+      @if (authState.isAdmin() && adminMode.enabled()) {
+        <button mat-button [matMenuTriggerFor]="adminMenu">Admin panel</button>
+      }
+
+      @if (authState.isAdmin()) {
+        <mat-slide-toggle [checked]="adminMode.enabled()" (change)="toggleAdminMode()">Admin mode</mat-slide-toggle>
+      }
+
+      <button mat-icon-button [matMenuTriggerFor]="userMenu" aria-label="User settings">
+        <mat-icon>manage_accounts</mat-icon>
+      </button>
+    </nav>
+  } @else {
+    <button mat-icon-button [matMenuTriggerFor]="mobileMenu" aria-label="Open menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+  }
+</mat-toolbar>
+
+<mat-menu #adminMenu="matMenu">
+  @for (link of adminLinks; track link.route) {
+    <a mat-menu-item [routerLink]="link.route">
+      <mat-icon>{{ link.icon }}</mat-icon>
+      {{ link.label }}
+    </a>
+  }
+</mat-menu>
+
+<mat-menu #userMenu="matMenu">
+  <a mat-menu-item routerLink="/settings">
+    <mat-icon>settings</mat-icon>
+    Settings
+  </a>
+  <a mat-menu-item routerLink="/settings/notifications">
+    <mat-icon>notifications</mat-icon>
+    Notification settings
+  </a>
+  @if (runtimeConfig.debug.enabled) {
+    <a mat-menu-item routerLink="/settings/access-token">
+      <mat-icon>key</mat-icon>
+      Access token
+    </a>
+  }
+  <button mat-menu-item (click)="logout()">
+    <mat-icon>logout</mat-icon>
+    Log out
+  </button>
+</mat-menu>
+
+<mat-menu #mobileMenu="matMenu">
+  @for (link of primaryLinks; track link.route) {
+    <a mat-menu-item [routerLink]="link.route">
+      <mat-icon>{{ link.icon }}</mat-icon>
+      {{ link.label }}
+    </a>
+  }
+  @if (authState.isAdmin() && adminMode.enabled()) {
+    <button mat-menu-item [matMenuTriggerFor]="adminMenu">
+      <mat-icon>admin_panel_settings</mat-icon>
+      Admin panel
+    </button>
+  }
+  <button mat-menu-item [matMenuTriggerFor]="userMenu">
+    <mat-icon>manage_accounts</mat-icon>
+    User settings
+  </button>
+  @if (authState.isAdmin()) {
+    <button mat-menu-item (click)="toggleAdminMode()">
+      <mat-icon>toggle_on</mat-icon>
+      {{ adminMode.enabled() ? 'Disable' : 'Enable' }} admin mode
+    </button>
+  }
+</mat-menu>

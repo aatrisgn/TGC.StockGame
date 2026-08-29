@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/features/unauthorized/unauthorized-page/unauthorized-page.scss"],
+  "sourcesContent": [".status-page {\n  max-width: 32rem;\n  margin: 4rem auto;\n  padding: 0 1.5rem;\n  text-align: center;\n}\n"],
+  "mappings": ";AAAA,CAAA;AACE,aAAA;AACA,UAAA,KAAA;AACA,WAAA,EAAA;AACA,cAAA;;",
+  "names": []
+}

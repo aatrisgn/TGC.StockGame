@@ -1,0 +1,57 @@
+<section class="matches-list-page">
+  <header class="matches-list-page-header">
+    <div>
+      <h1>Matches</h1>
+      <p>Matches available to you, filtered and sorted below.</p>
+    </div>
+    <button mat-flat-button (click)="openCreateMatchDialog()">
+      <mat-icon>add</mat-icon>
+      New match
+    </button>
+  </header>
+
+  <div class="matches-list-page-toolbar">
+    <mat-form-field appearance="outline" subscriptSizing="dynamic">
+      <mat-label>Status</mat-label>
+      <mat-select [value]="statusFilter()" (selectionChange)="setStatusFilter($event)">
+        <mat-option [value]="null">All statuses</mat-option>
+        @for (option of statusOptions; track option.value) {
+          <mat-option [value]="option.value">{{ option.label }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" subscriptSizing="dynamic">
+      <mat-label>Sort by</mat-label>
+      <mat-select [value]="sortField()" (selectionChange)="setSortField($event)">
+        <mat-option value="created">Created time</mat-option>
+        <mat-option value="name">Name</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <button
+      mat-icon-button
+      type="button"
+      [attr.aria-label]="sortDirection() === 'asc' ? 'Sort descending' : 'Sort ascending'"
+      (click)="toggleSortDirection()"
+    >
+      <mat-icon>{{ sortDirection() === 'asc' ? 'arrow_upward' : 'arrow_downward' }}</mat-icon>
+    </button>
+  </div>
+
+  @if (isLoading()) {
+    <div class="matches-list-page-loading">
+      <mat-spinner diameter="32" />
+    </div>
+  } @else if (visibleMatches().length === 0) {
+    <p class="matches-list-page-empty">No matches match the current filters.</p>
+  } @else {
+    <div class="matches-list-page-grid">
+      @for (match of visibleMatches(); track match.id) {
+        <a class="matches-list-page-tile-link" [routerLink]="['/matches', match.id]">
+          <app-match-tile [match]="match" />
+        </a>
+      }
+    </div>
+  }
+</section>

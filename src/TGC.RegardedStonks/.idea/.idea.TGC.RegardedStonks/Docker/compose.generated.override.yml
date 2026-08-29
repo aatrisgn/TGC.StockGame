@@ -1,0 +1,20 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  tgc.regardedstonks.api:
+    build:
+      context: "/Users/asgerarnbjornthyregod/src/TGC.StockGame/src/TGC.RegardedStonks"
+      dockerfile: "TGC.RegardedStonks.Api/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net10.0/TGC.RegardedStonks.Api.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "tgc.regardedstonks.api:dev"
+    ports: []
+    volumes:
+    - "/Users/asgerarnbjornthyregod/src/TGC.StockGame/src/TGC.RegardedStonks/TGC.RegardedStonks.Api:/app:rw"
+    - "/Users/asgerarnbjornthyregod/src/TGC.StockGame/src/TGC.RegardedStonks:/src:rw"
+    - "/Users/asgerarnbjornthyregod/.nuget/packages:/home/app/.nuget/packages"
+    working_dir: "/app"

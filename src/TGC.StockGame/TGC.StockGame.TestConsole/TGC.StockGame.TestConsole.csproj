@@ -19,8 +19,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\TGC.StockGame.Api\TGC.StockGame.Api.csproj" />
-      <ProjectReference Include="..\TGC.StockGame.Core\TGC.StockGame.Core.csproj" />
-    </ItemGroup>
+</ItemGroup>
 
 </Project>

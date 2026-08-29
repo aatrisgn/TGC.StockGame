@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/features/matches/matches.routes.ts"],
+  "sourcesContent": ["import { Routes } from '@angular/router';\n\nexport const MATCHES_ROUTES: Routes = [\n  {\n    path: '',\n    loadComponent: () => import('./matches-list-page/matches-list-page').then((m) => m.MatchesListPage)\n  },\n  {\n    path: ':id',\n    loadComponent: () => import('./match-detail-page/match-detail-page').then((m) => m.MatchDetailPage)\n  }\n];\n"],
+  "mappings": ";;;AAEO,IAAM,iBAAyB;EACpC;IACE,MAAM;IACN,eAAe,MAAM,OAAO,qBAAuC,EAAE,KAAK,CAAC,MAAM,EAAE,eAAe;;EAEpG;IACE,MAAM;IACN,eAAe,MAAM,OAAO,qBAAuC,EAAE,KAAK,CAAC,MAAM,EAAE,eAAe;;;",
+  "names": []
+}

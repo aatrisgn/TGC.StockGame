@@ -1,0 +1,29 @@
+<section class="settings-page">
+  <h1>Settings</h1>
+
+  <div class="settings-page__row">
+    <span>Username: {{ playerApi.username() }}</span>
+    <button mat-button (click)="openChangeUsernameDialog()">Change</button>
+  </div>
+
+  <div class="settings-page__row">
+    <span>Dark theme</span>
+    <mat-slide-toggle [checked]="theme.mode() === 'dark'" (change)="toggleTheme()"></mat-slide-toggle>
+  </div>
+
+  <div class="settings-page__row">
+    <span>Profile image</span>
+    <p class="settings-page__hint">Coming soon.</p>
+  </div>
+
+  @if (playerApi.hasRoles()) {
+    <div class="settings-page__section">
+      <h2>Privileges</h2>
+      <ul class="settings-page__privileges">
+        @for (role of playerApi.roles(); track role) {
+          <li>{{ role }}</li>
+        }
+      </ul>
+    </div>
+  }
+</section>

@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>Something went wrong</h2>
+<mat-dialog-content>
+  <p>{{ data.message }}</p>
+  <dl class="error-dialog__ids">
+    <dt>Trace ID</dt>
+    <dd class="tgc-mono-numeric">{{ data.traceId }}</dd>
+    <dt>Session ID</dt>
+    <dd class="tgc-mono-numeric">{{ data.sessionId }}</dd>
+  </dl>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="close()">OK</button>
+</mat-dialog-actions>

@@ -1,0 +1,16 @@
+{
+  "environmentName": "local",
+  "apiBaseUrl": "https://REPLACE_ME_DEV_API_HOST",
+  "rolesClaimName": "roles",
+  "auth": {
+    "clientId": "8bbc1c27-3b7f-4937-8e4a-fd8a5457f2f1",
+    "authority": "https://tgclogin.ciamlogin.com/",
+    "tenantId": "b24164c1-2a81-43ed-99f3-51f226868c05",
+    "redirectUri": "http://localhost:4200",
+    "postLogoutRedirectUri": "http://localhost:4200",
+    "apiScopes": ["api://8bbc1c27-3b7f-4937-8e4a-fd8a5457f2f1/access_as_user"]
+  },
+  "debug": {
+    "enabled": true
+  }
+}

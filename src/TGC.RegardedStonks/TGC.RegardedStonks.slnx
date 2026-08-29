@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="compose.yaml" />
+  </Folder>
+  <Project Path="../../../TGC.Framework/src/Communication/TGC.Communication/TGC.Communication/TGC.Communication.csproj" />
+  <Project Path="TGC.RegardedStonks.Api/TGC.RegardedStonks.Api.csproj" />
+  <Project Path="TGC.RegardedStonks.Application/TGC.RegardedStonks.Application.csproj" />
+  <Project Path="TGC.RegardedStonks.Domain/TGC.RegardedStonks.Domain.csproj" />
+  <Project Path="TGC.RegardedStonks.Infrastructure/TGC.RegardedStonks.Infrastructure.csproj" />
+</Solution>

@@ -1,0 +1,84 @@
+.match-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(128, 128, 128, 0.25);
+  border-radius: 2px;
+  background-color: var(--mat-sys-surface-container);
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+
+  &:hover {
+    border-color: rgba(128, 128, 128, 0.5);
+    background-color: var(--mat-sys-surface-container-high);
+  }
+}
+
+.match-tile-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.match-tile-name {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.match-tile-status {
+  flex: 0 0 auto;
+  padding: 0.125rem 0.5rem;
+  border-radius: 2px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+
+  &--positive {
+    color: var(--tgc-up);
+    background-color: color-mix(in srgb, var(--tgc-up) 15%, transparent);
+  }
+
+  &--negative {
+    color: var(--tgc-down);
+    background-color: color-mix(in srgb, var(--tgc-down) 15%, transparent);
+  }
+
+  &--pending {
+    color: var(--mat-sys-tertiary);
+    background-color: color-mix(in srgb, var(--mat-sys-tertiary) 15%, transparent);
+  }
+
+  &--neutral {
+    color: var(--mat-sys-on-surface-variant);
+    background-color: color-mix(in srgb, var(--mat-sys-on-surface-variant) 12%, transparent);
+  }
+}
+
+.match-tile-stats {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.25rem 0.75rem;
+  margin: 0;
+
+  dt {
+    color: var(--mat-sys-on-surface-variant);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  dd {
+    margin: 0;
+    text-align: right;
+    font-size: 0.875rem;
+  }
+}

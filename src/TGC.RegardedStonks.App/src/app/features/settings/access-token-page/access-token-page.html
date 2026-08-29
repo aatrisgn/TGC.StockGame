@@ -1,0 +1,64 @@
+<section class="access-token-page">
+  <h1>Access token</h1>
+  <p>Inspect the access and identity tokens issued to your account, for debugging authentication issues.</p>
+
+  @if (tokenResource.isLoading()) {
+    <p>Requesting tokens&hellip;</p>
+  } @else if (tokenResource.error(); as error) {
+    <p class="access-token-page__error">
+      Could not acquire tokens: {{ error }}. Refresh the page to try again.
+    </p>
+  } @else {
+    <section class="access-token-page__section">
+      <h2>Access token</h2>
+
+      <h3>Encoded</h3>
+      <pre class="access-token-page__pre">{{ accessTokenView()?.encoded }}</pre>
+
+      <h3>Decoded claims</h3>
+      @if (accessTokenView(); as view) {
+        @if (view.decoded; as decoded) {
+          <dl class="access-token-page__claims">
+            @for (entry of claimEntries(decoded); track entry[0]) {
+              <dt>{{ entry[0] }}</dt>
+              <dd class="tgc-mono-numeric">{{ formatClaimValue(entry[1]) }}</dd>
+            }
+          </dl>
+        } @else {
+          <p class="access-token-page__error">{{ view.decodeError }}</p>
+        }
+      }
+    </section>
+
+    <section class="access-token-page__section">
+      <h2>Identity token</h2>
+
+      <h3>Encoded</h3>
+      <pre class="access-token-page__pre">{{ identityTokenView()?.encoded }}</pre>
+
+      <h3>Decoded claims</h3>
+      @if (identityTokenView(); as view) {
+        @if (view.decoded; as decoded) {
+          <dl class="access-token-page__claims">
+            @for (entry of claimEntries(decoded); track entry[0]) {
+              <dt>{{ entry[0] }}</dt>
+              <dd class="tgc-mono-numeric">{{ formatClaimValue(entry[1]) }}</dd>
+            }
+          </dl>
+        } @else {
+          <p class="access-token-page__error">{{ view.decodeError }}</p>
+        }
+      }
+    </section>
+  }
+
+  <section class="access-token-page__section access-token-page__glossary">
+    <h2>JWT claim glossary</h2>
+    <dl>
+      @for (entry of glossary; track entry.claim) {
+        <dt>{{ entry.claim }}</dt>
+        <dd>{{ entry.description }}</dd>
+      }
+    </dl>
+  </section>
+</section>

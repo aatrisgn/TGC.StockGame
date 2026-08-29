@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/core/models/api-client.token.ts"],
+  "sourcesContent": ["import { InjectionToken } from '@angular/core';\nimport type { ApiClient } from '../../auto_generated/client/apiClient';\n\n/**\n * Authenticated ApiClient instance, built at bootstrap from RuntimeConfig and the MSAL instance.\n * Kept separate from auto_generated/ so regenerating the Kiota client never clobbers this token.\n */\nexport const API_CLIENT = new InjectionToken<ApiClient>('API_CLIENT');\n"],
+  "mappings": ";;;;;AAOO,IAAM,aAAa,IAAI,eAA0B,YAAY;",
+  "names": []
+}

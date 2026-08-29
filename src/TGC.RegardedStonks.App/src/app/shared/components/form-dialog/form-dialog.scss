@@ -1,0 +1,16 @@
+.form-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 320px;
+}
+
+.form-dialog-field {
+  width: 100%;
+}
+
+.form-dialog-error {
+  margin: 0;
+  color: var(--tgc-down);
+  font-size: 0.875rem;
+}

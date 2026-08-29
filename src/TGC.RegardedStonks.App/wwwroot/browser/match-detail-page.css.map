@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["src/app/features/matches/match-detail-page/match-detail-page.scss"],
+  "sourcesContent": [".match-detail-page {\n  padding: 1.5rem;\n}\n"],
+  "mappings": ";AAAA,CAAA;AACE,WAAA;;",
+  "names": []
+}

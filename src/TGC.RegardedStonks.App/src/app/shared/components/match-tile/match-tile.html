@@ -1,0 +1,14 @@
+<article class="match-tile">
+  <header class="match-tile-header">
+    <h3 class="match-tile-name">{{ match().name }}</h3>
+    <span class="match-tile-status match-tile-status--{{ statusVariant() }}">{{ statusLabel() }}</span>
+  </header>
+
+  <dl class="match-tile-stats">
+    <dt>Starting capital</dt>
+    <dd class="tgc-mono-numeric">{{ startingCapital() | currency }}</dd>
+
+    <dt>Created</dt>
+    <dd class="tgc-mono-numeric">{{ match().created | date: 'yyyy-MM-dd HH:mm' }}</dd>
+  </dl>
+</article>

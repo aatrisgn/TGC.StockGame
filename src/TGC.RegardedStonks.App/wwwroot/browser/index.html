@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>RegardedStonks</title>
+    <base href="/"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <script>
+      (function () {
+        var stored = localStorage.getItem('tgc-regarded-stonks:theme');
+        var mode =
+          stored === 'light' || stored === 'dark'
+            ? stored
+            : window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+        document.documentElement.classList.add('theme-' + mode);
+      })();
+    </script>
+  <link rel="stylesheet" href="styles.css"></head>
+  <body>
+    <app-root></app-root>
+  <link rel="modulepreload" href="chunk-CUVLGA24.js"><link rel="modulepreload" href="chunk-SQFG36WU.js"><link rel="modulepreload" href="chunk-FYGX6LEM.js"><link rel="modulepreload" href="chunk-6W2UWXVH.js"><link rel="modulepreload" href="chunk-3SQQMRC2.js"><link rel="modulepreload" href="chunk-QIYUTIXR.js"><link rel="modulepreload" href="chunk-GBFPCZ3F.js"><link rel="modulepreload" href="chunk-BNGKUX2I.js"><link rel="modulepreload" href="chunk-TFNXWNWG.js"><link rel="modulepreload" href="chunk-C3SXUWUH.js"><script src="polyfills.js" type="module"></script><script src="main.js" type="module"></script></body>
+</html>

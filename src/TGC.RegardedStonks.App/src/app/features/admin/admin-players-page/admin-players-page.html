@@ -1,0 +1,20 @@
+<section class="admin-players-page">
+  <header class="admin-players-page-header">
+    <div>
+      <h1>All players</h1>
+      <p>Every registered player is listed here for admin management.</p>
+    </div>
+    <button mat-flat-button (click)="openAddPlayerDialog()">
+      <mat-icon>add</mat-icon>
+      Add player
+    </button>
+  </header>
+
+  @if (isLoading()) {
+    <div class="admin-players-page-loading">
+      <mat-spinner diameter="32" />
+    </div>
+  } @else {
+    <app-data-table [columns]="columns" [rows]="rows()" />
+  }
+</section>

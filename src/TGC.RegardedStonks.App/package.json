@@ -1,0 +1,61 @@
+{
+  "name": "tgc-regarded-stonks-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "lint": "ng lint"
+  },
+  "private": true,
+  "resolutions": {
+    "@microsoft/kiota-abstractions": "1.0.0-preview.102",
+    "@microsoft/kiota-http-fetchlibrary": "1.0.0-preview.102",
+    "@microsoft/kiota-serialization-form": "1.0.0-preview.102",
+    "@microsoft/kiota-serialization-json": "1.0.0-preview.102",
+    "@microsoft/kiota-serialization-text": "1.0.0-preview.102",
+    "@microsoft/kiota-serialization-multipart": "1.0.0-preview.102"
+  },
+  "dependencies": {
+    "@angular/animations": "^20.3.0",
+    "@angular/cdk": "20.2.14",
+    "@angular/common": "^20.3.0",
+    "@angular/compiler": "^20.3.0",
+    "@angular/core": "^20.3.0",
+    "@angular/forms": "^20.3.0",
+    "@angular/material": "20.2.14",
+    "@angular/platform-browser": "^20.3.0",
+    "@angular/router": "^20.3.0",
+    "@azure/msal-angular": "^6.1.0",
+    "@azure/msal-browser": "^5.19.0",
+    "@microsoft/kiota-abstractions": "1.0.0-preview.102",
+    "@microsoft/kiota-bundle": "1.0.0-preview.102",
+    "@microsoft/kiota-serialization-json": "1.0.0-preview.102",
+    "@types/node": "^26.3.0",
+    "rxjs": "~7.8.0",
+    "skills": "angular/skills",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.15.0"
+  },
+  "devDependencies": {
+    "@angular-eslint/builder": "22.1.0",
+    "@angular/build": "^20.3.2",
+    "@angular/cli": "^20.3.2",
+    "@angular/compiler-cli": "^20.3.0",
+    "@eslint/js": "^10.0.1",
+    "@types/jasmine": "~5.1.0",
+    "angular-eslint": "22.1.0",
+    "eslint": "^10.6.0",
+    "jasmine-core": "~5.9.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "typescript": "~5.9.2",
+    "typescript-eslint": "8.62.1"
+  }
+}

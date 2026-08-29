@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>{{ data.title }}</h2>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <mat-dialog-content class="form-dialog-content">
+    @for (field of data.fields; track field.key) {
+      <mat-form-field appearance="outline" class="form-dialog-field">
+        <mat-label>{{ field.label }}</mat-label>
+        @if (field.type === 'currency') {
+          <span matTextPrefix>$&nbsp;</span>
+        }
+        <input matInput [type]="field.type === 'text' ? 'text' : 'number'" [formControlName]="field.key" [placeholder]="field.placeholder ?? ''" />
+      </mat-form-field>
+    }
+    @if (error()) {
+      <p class="form-dialog-error">{{ error() }}</p>
+    }
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button type="button" [disabled]="submitting()" (click)="cancel()">{{ data.cancelLabel ?? 'Cancel' }}</button>
+    <button mat-flat-button type="submit" [disabled]="submitting()">
+      @if (submitting()) {
+        <mat-spinner diameter="18" />
+      } @else {
+        {{ data.submitLabel ?? 'Submit' }}
+      }
+    </button>
+  </mat-dialog-actions>
+</form>
