@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/features/tutorial/tutorial-page/tutorial-page.ts", "src/app/features/tutorial/tutorial-page/tutorial-page.html"],
-  "sourcesContent": ["import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-tutorial-page',\n  imports: [],\n  templateUrl: './tutorial-page.html',\n  styleUrl: './tutorial-page.scss'\n})\nexport class TutorialPage {}\n", "<section class=\"tutorial-page\">\n  <h1>Tutorial</h1>\n  <p>Documentation and descriptions of how the game works will live here.</p>\n</section>\n"],
-  "mappings": ";;;;;;;;;;;;AAQM,IAAO,eAAP,MAAO,cAAY;;qCAAZ,eAAY;EAAA;yEAAZ,eAAY,WAAA,CAAA,CAAA,mBAAA,CAAA,GAAA,OAAA,GAAA,MAAA,GAAA,QAAA,CAAA,CAAA,GAAA,eAAA,CAAA,GAAA,UAAA,SAAA,sBAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;ACRzB,MAAA,4BAAA,GAAA,WAAA,CAAA,EAA+B,GAAA,IAAA;AACzB,MAAA,iBAAA,GAAA,UAAA;AAAQ,MAAA,0BAAA;AACZ,MAAA,4BAAA,GAAA,GAAA;AAAG,MAAA,iBAAA,GAAA,sEAAA;AAAoE,MAAA,0BAAA,EAAI;;;;;sEDMhE,cAAY,CAAA;UANxB;uBACW,qBAAmB,SACpB,CAAA,GAAE,UAAA,qJAAA,QAAA,CAAA,4JAAA,EAAA,CAAA;;;;6EAIA,cAAY,EAAA,WAAA,gBAAA,UAAA,4DAAA,YAAA,EAAA,CAAA;AAAA,GAAA;",
-  "names": []
-}

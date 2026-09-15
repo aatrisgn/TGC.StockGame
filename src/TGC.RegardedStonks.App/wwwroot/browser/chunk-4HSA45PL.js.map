@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/features/settings/notification-settings-page/notification-settings-page.ts", "src/app/features/settings/notification-settings-page/notification-settings-page.html"],
-  "sourcesContent": ["import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-notification-settings-page',\n  imports: [],\n  templateUrl: './notification-settings-page.html',\n  styleUrl: './notification-settings-page.scss'\n})\nexport class NotificationSettingsPage {}\n", "<section class=\"notification-settings-page\">\n  <h1>Notification settings</h1>\n  <p>Notification preferences will be configurable here.</p>\n</section>\n"],
-  "mappings": ";;;;;;;;;;;;AAQM,IAAO,2BAAP,MAAO,0BAAwB;;qCAAxB,2BAAwB;EAAA;yEAAxB,2BAAwB,WAAA,CAAA,CAAA,gCAAA,CAAA,GAAA,OAAA,GAAA,MAAA,GAAA,QAAA,CAAA,CAAA,GAAA,4BAAA,CAAA,GAAA,UAAA,SAAA,kCAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;ACRrC,MAAA,4BAAA,GAAA,WAAA,CAAA,EAA4C,GAAA,IAAA;AACtC,MAAA,iBAAA,GAAA,uBAAA;AAAqB,MAAA,0BAAA;AACzB,MAAA,4BAAA,GAAA,GAAA;AAAG,MAAA,iBAAA,GAAA,qDAAA;AAAmD,MAAA,0BAAA,EAAI;;;;;sEDM/C,0BAAwB,CAAA;UANpC;uBACW,kCAAgC,SACjC,CAAA,GAAE,UAAA,8JAAA,QAAA,CAAA,gNAAA,EAAA,CAAA;;;;6EAIA,0BAAwB,EAAA,WAAA,4BAAA,UAAA,sFAAA,YAAA,EAAA,CAAA;AAAA,GAAA;",
-  "names": []
-}

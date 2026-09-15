@@ -3,7 +3,7 @@ using TGC.RegardedStonks.Application.Repositories;
 
 namespace TGC.RegardedStonks.Application.Features.Admin.GetAllMatches;
 
-public class GetAllMatchesQueryHandler:  BaseQueryHandler<GetAllMatchesQuery>, IQueryHandler
+public class GetAllMatchesQueryHandler:  BaseQueryHandler<GetAllMatchesQuery, GetAllMatchesQueryResponse>, IQueryHandler
 {
 	private readonly IMatchReadOnlyRepository _matchRepository;
 	public GetAllMatchesQueryHandler(IMatchReadOnlyRepository matchRepository)
@@ -14,7 +14,7 @@ public class GetAllMatchesQueryHandler:  BaseQueryHandler<GetAllMatchesQuery>, I
 	public async Task<IResult<IQueryResponse>> Handle<TQuery>(TQuery query) where TQuery : IQuery
 	{
 		var results = await _matchRepository.GetAllAsync();
-		return Result<GetAllMatchesQueryResponse>.AsOk(new GetAllMatchesQueryResponse
+		return AsOk(new GetAllMatchesQueryResponse
 		{
 			Matches = results.ToList()
 		});

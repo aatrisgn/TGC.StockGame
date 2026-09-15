@@ -1,4 +1,4 @@
-using TGC.RegardedStonks.Application.Repositories.Entities;
+using TGC.RegardedStonks.Domain.Entities;
 
 namespace TGC.RegardedStonks.Infrastructure.Entities;
 
@@ -20,4 +20,21 @@ public class StockCompanyEntity : BaseEntity
 	public Guid StockMatchId { get; set; }
 	public StockMatchEntity StockMatch { get; set; }
 	public List<PlayerStockPortfolioEntity> PlayerStockPortfolios { get; set; } = [];
+
+	public static StockCompanyEntity FromDomain(IStockCompanyEntity matchEntity)
+	{
+		return new StockCompanyEntity
+		{
+			Name = matchEntity.Name,
+			AvailableStocks = matchEntity.AvailableStocks,
+			Bankrupt = matchEntity.Bankrupt,
+			Description = matchEntity.Description,
+			LastReportedProfit = matchEntity.LastReportedProfit,
+			LastReportedRevenue = matchEntity.LastReportedRevenue,
+			LiquidAssets = matchEntity.LiquidAssets,
+			NonLiquidAssets = matchEntity.NonLiquidAssets,
+			Price = matchEntity.Price,
+			ShortName = matchEntity.ShortName,
+		};
+	}
 }

@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TGC.RegardedStonks.Application.Features.Players;
 using TGC.RegardedStonks.Application.Repositories;
+using TGC.RegardedStonks.Domain.Entities;
 using TGC.RegardedStonks.Infrastructure.Entities;
 using TGC.RegardedStonks.Infrastructure.Persistence;
 
@@ -33,6 +34,22 @@ public class StockMatchRepository : IMatchRepository
 
 		return entity.Id;
 	}
+	
+	public async Task<Guid> AddAsync(IStockMatchEntity matchEntity, CancellationToken cancellationToken = default)
+	{
+		var efEntity = StockMatchEntity.FromDomain(matchEntity);
+		
+		efEntity.Created = DateTimeOffset.UtcNow;
+		efEntity.CreatedBy = _userContextService.GetUserId();
+		efEntity.UpdatedBy= _userContextService.GetUserId();
+		efEntity.LastEdited = DateTimeOffset.UtcNow;
+		efEntity.Active = true;
+		efEntity.Id = Guid.NewGuid();
+
+		await _context.StockMatches.AddAsync(efEntity, cancellationToken);
+
+		return efEntity.Id;
+	}
 
 	public async Task UpdateAsync(Guid id, string name, CancellationToken cancellationToken = default)
 	{
@@ -44,14 +61,17 @@ public class StockMatchRepository : IMatchRepository
 		entity.UpdatedBy = _userContextService.GetUserId();
 	}
 
-	public async Task DeleteAsync(Guid id, CancellationToken cancellationToken = default)
+	public async Task<bool> DeleteAsync(Guid id, CancellationToken cancellationToken = default)
 	{
-		var entity = await _context.StockMatches.FirstOrDefaultAsync(x => x.Id == id, cancellationToken)
-			?? throw new KeyNotFoundException($"Stock match '{id}' was not found.");
-
+		var entity = await _context.StockMatches.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+		
+		if(entity == null) return false;
+		
 		entity.Active = false;
 		entity.LastEdited = DateTimeOffset.UtcNow;
 		entity.UpdatedBy = _userContextService.GetUserId();
+		
+		return true;
 	}
 
 	public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default) =>

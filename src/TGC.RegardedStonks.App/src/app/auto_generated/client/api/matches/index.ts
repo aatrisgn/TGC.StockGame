@@ -4,9 +4,7 @@
 // @ts-ignore
 import { createCreateMatchCommandResponseFromDiscriminatorValue, createGetAvailableMatchesQueryResponseFromDiscriminatorValue, createProblemDetailsFromDiscriminatorValue, serializeCreateMatchCommandResponse, serializeCreateMatchRequest, type CreateMatchCommandResponse, type CreateMatchRequest, type GetAvailableMatchesQueryResponse, type ProblemDetails } from '../../models/index.js';
 // @ts-ignore
-import { ArchiveRequestBuilderNavigationMetadata, type ArchiveRequestBuilder } from './archive/index.js';
-// @ts-ignore
-import { MatchesItemRequestBuilderNavigationMetadata, MatchesItemRequestBuilderRequestsMetadata, type MatchesItemRequestBuilder } from './item/index.js';
+import { ItemRequestBuilderNavigationMetadata, ItemRequestBuilderRequestsMetadata, type ItemRequestBuilder } from './item/index.js';
 // @ts-ignore
 import { type BaseRequestBuilder, type Guid, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
@@ -15,15 +13,11 @@ import { type BaseRequestBuilder, type Guid, type KeysToExcludeForNavigationMeta
  */
 export interface MatchesRequestBuilder extends BaseRequestBuilder<MatchesRequestBuilder> {
     /**
-     * The archive property
-     */
-    get archive(): ArchiveRequestBuilder;
-    /**
      * Gets an item from the ApiSdk.api.matches.item collection
      * @param id Unique identifier of the item
-     * @returns {MatchesItemRequestBuilder}
+     * @returns {ItemRequestBuilder}
      */
-     byId(id: Guid) : MatchesItemRequestBuilder;
+     byId(id: Guid) : ItemRequestBuilder;
     /**
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAvailableMatchesQueryResponse>}
@@ -62,12 +56,9 @@ export const MatchesRequestBuilderUriTemplate = "{+baseurl}/api/matches";
  */
 export const MatchesRequestBuilderNavigationMetadata: Record<Exclude<keyof MatchesRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
     byId: {
-        requestsMetadata: MatchesItemRequestBuilderRequestsMetadata,
-        navigationMetadata: MatchesItemRequestBuilderNavigationMetadata,
-        pathParametersMappings: ["id"],
-    },
-    archive: {
-        navigationMetadata: ArchiveRequestBuilderNavigationMetadata,
+        requestsMetadata: ItemRequestBuilderRequestsMetadata,
+        navigationMetadata: ItemRequestBuilderNavigationMetadata,
+        pathParametersMappings: ["%2Did"],
     },
 };
 /**

@@ -44,11 +44,13 @@ public static class IServiceCollectionExtensions
 		services.AddScoped<IMatchEventReadOnlyRepository, MatchEventReadOnlyRepository>();
 		services.AddScoped<ITemplateStockCompanyReadOnlyRepository, TemplateStockCompanyReadOnlyRepository>();
 		services.AddScoped<IPlayerReadOnlyRepository, PlayerReadOnlyRepository>();
+		services.AddScoped<IMatchInvitationReadOnlyRepository, MatchInvitationReadOnlyRepository>();
 
 		services.AddScoped<IMatchEventRepository, MatchEventRepository>();
 		services.AddScoped<IMatchRepository, StockMatchRepository>();
 		services.AddScoped<ITemplateStockCompanyRepository, TemplateStockCompanyRepository>();
 		services.AddScoped<IPlayerRepository, PlayerRepository>();
+		services.AddScoped<IMatchInvitationRepository, MatchInvitationRepository>();
 		
 		
 		return services;

@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/core/models/runtime-config.model.ts"],
-  "sourcesContent": ["import { InjectionToken } from '@angular/core';\n\nexport interface RuntimeConfigAuth {\n  clientId: string;\n  authority: string;\n  tenantId: string;\n  redirectUri: string;\n  postLogoutRedirectUri: string;\n  apiScopes: string[];\n}\n\nexport interface RuntimeConfigDebug {\n  enabled: boolean;\n}\n\nexport interface RuntimeConfig {\n  environmentName: string;\n  apiBaseUrl: string;\n  rolesClaimName: string;\n  auth: RuntimeConfigAuth;\n  debug: RuntimeConfigDebug;\n}\n\nexport const RUNTIME_CONFIG = new InjectionToken<RuntimeConfig>('RUNTIME_CONFIG');\n"],
-  "mappings": ";;;;;AAuBO,IAAM,iBAAiB,IAAI,eAA8B,gBAAgB;",
-  "names": []
-}

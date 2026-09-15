@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/features/tutorial/tutorial-page/tutorial-page.scss"],
-  "sourcesContent": [".tutorial-page {\n  padding: 1.5rem;\n}\n"],
-  "mappings": ";AAAA,CAAA;AACE,WAAA;;",
-  "names": []
-}

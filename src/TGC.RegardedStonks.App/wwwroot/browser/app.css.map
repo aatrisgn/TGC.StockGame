@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/app.scss"],
-  "sourcesContent": [".app-content {\n  padding-top: 64px;\n}\n\n@media (max-width: 599px) {\n  .app-content {\n    padding-top: 56px;\n  }\n}\n"],
-  "mappings": ";AAAA,CAAA;AACE,eAAA;;AAGF,QAAA,WAAA;AACE,GALF;AAMI,iBAAA;;;",
-  "names": []
-}

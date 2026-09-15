@@ -3,7 +3,7 @@ using TGC.RegardedStonks.Application.Repositories;
 
 namespace TGC.RegardedStonks.Application.Features.Matches.GetAvailableMatches;
 
-public class GetAvailableMatchesQueryHandler : BaseQueryHandler<GetAvailableMatchesQuery>, IQueryHandler
+public class GetAvailableMatchesQueryHandler : BaseQueryHandler<GetAvailableMatchesQuery, GetAvailableMatchesQueryResponse>, IQueryHandler
 {
 	private readonly IMatchReadOnlyRepository _matchRepository;
 	public GetAvailableMatchesQueryHandler(IMatchReadOnlyRepository matchRepository)
@@ -20,6 +20,6 @@ public class GetAvailableMatchesQueryHandler : BaseQueryHandler<GetAvailableMatc
 			Matches = matches
 		};
 
-		return Result<GetAvailableMatchesQueryResponse>.AsOk(response);
+		return AsOk(response);
 	}
 }

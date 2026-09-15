@@ -1,4 +1,4 @@
-using TGC.RegardedStonks.Application.Repositories.Entities;
+using TGC.RegardedStonks.Domain.Entities;
 using TGC.RegardedStonks.Domain.Enums;
 using TGC.RegardedStonks.Infrastructure.Entities;
 
@@ -16,7 +16,7 @@ public class StockMatchDto : IStockMatchEntity
 	public MatchStatus Status { get; set; }
 	public DateTimeOffset? EndDateTime { get; set; }
 	public decimal StartingCapital { get; set; }
-	public List<IStockCompany> StockCompanies { get; set; }
+	public List<IStockCompanyEntity> StockCompanies { get; set; }
 	public List<IPlayerEntity> Players { get; set; }
 	public List<IPlayerPortfolio> PlayerPortfolios { get; set; }
 	public List<IMatchEventEntity> MatchEvents { get; set; }
@@ -35,18 +35,8 @@ public class StockMatchDto : IStockMatchEntity
 			Status = relevantStockMatch.Status,
 			EndDateTime = relevantStockMatch.EndDateTime,
 			StartingCapital = relevantStockMatch.StartingCapital,
-			Players = relevantStockMatch.Players.Select(p => new PlayerDto
-			{
-				Id = p.Id,
-				Created = p.Created,
-				Oid = p.Oid,
-				Active = p.Active,
-				CreatedBy = p.CreatedBy,
-				LastEdited = p.LastEdited,
-				ProfilePicture = p.ProfilePicture,
-				UpdatedBy = p.UpdatedBy,
-				Username = p.Username,
-			}).Cast<IPlayerEntity>().ToList(),
+			Players = relevantStockMatch.Players.Select(PlayerDto.FromEntity).ToList(),
+			StockCompanies = relevantStockMatch.StockCompanies.Select(StockCompanyDto.FromEntity).ToList()
 		};
 	}
 }

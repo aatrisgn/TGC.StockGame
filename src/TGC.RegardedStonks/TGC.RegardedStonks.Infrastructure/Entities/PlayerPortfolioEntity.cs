@@ -1,4 +1,3 @@
-using TGC.RegardedStonks.Application.Repositories.Entities;
 using TGC.RegardedStonks.Domain.Enums;
 
 namespace TGC.RegardedStonks.Infrastructure.Entities;

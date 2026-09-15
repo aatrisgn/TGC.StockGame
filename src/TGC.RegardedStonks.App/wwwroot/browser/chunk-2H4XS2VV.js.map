@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/features/settings/settings.routes.ts"],
-  "sourcesContent": ["import { Routes } from '@angular/router';\n\nexport const SETTINGS_ROUTES: Routes = [\n  {\n    path: '',\n    loadComponent: () => import('./settings-page/settings-page').then((m) => m.SettingsPage)\n  },\n  {\n    path: 'notifications',\n    loadComponent: () => import('./notification-settings-page/notification-settings-page').then((m) => m.NotificationSettingsPage)\n  },\n  {\n    path: 'access-token',\n    loadComponent: () => import('./access-token-page/access-token-page').then((m) => m.AccessTokenPage)\n  }\n];\n"],
-  "mappings": ";;;AAEO,IAAM,kBAA0B;EACrC;IACE,MAAM;IACN,eAAe,MAAM,OAAO,qBAA+B,EAAE,KAAK,CAAC,MAAM,EAAE,YAAY;;EAEzF;IACE,MAAM;IACN,eAAe,MAAM,OAAO,qBAAyD,EAAE,KAAK,CAAC,MAAM,EAAE,wBAAwB;;EAE/H;IACE,MAAM;IACN,eAAe,MAAM,OAAO,qBAAuC,EAAE,KAAK,CAAC,MAAM,EAAE,eAAe;;;",
-  "names": []
-}

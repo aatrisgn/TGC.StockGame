@@ -1,4 +1,4 @@
-using TGC.RegardedStonks.Application.Repositories.Entities;
+using TGC.RegardedStonks.Domain.Entities;
 
 namespace TGC.RegardedStonks.Application.Repositories;
 

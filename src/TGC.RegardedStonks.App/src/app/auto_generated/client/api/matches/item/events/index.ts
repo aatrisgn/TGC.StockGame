@@ -7,7 +7,7 @@ import { createCreateMatchEventCommandResponseFromDiscriminatorValue, createProb
 import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
- * Builds and executes requests for operations under /api/matches/{id}/events
+ * Builds and executes requests for operations under /api/matches/{-id}/events
  */
 export interface EventsRequestBuilder extends BaseRequestBuilder<EventsRequestBuilder> {
     /**
@@ -29,7 +29,7 @@ export interface EventsRequestBuilder extends BaseRequestBuilder<EventsRequestBu
 /**
  * Uri template for the request builder.
  */
-export const EventsRequestBuilderUriTemplate = "{+baseurl}/api/matches/{id}/events";
+export const EventsRequestBuilderUriTemplate = "{+baseurl}/api/matches/{%2Did}/events";
 /**
  * Metadata for all the requests in the request builder.
  */

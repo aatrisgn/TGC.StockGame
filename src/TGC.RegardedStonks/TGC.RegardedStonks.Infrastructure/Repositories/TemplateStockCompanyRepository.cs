@@ -30,7 +30,7 @@ public class TemplateStockCompanyRepository : ITemplateStockCompanyRepository
 		decimal? nonLiquidAssets = null,
 		CancellationToken cancellationToken = default)
 	{
-		var entity = new TemplateStockCompany
+		var entity = new TemplateStockCompanyEntity
 		{
 			Id = Guid.NewGuid(),
 			Name = name,

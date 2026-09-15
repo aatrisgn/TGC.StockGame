@@ -4,12 +4,18 @@
 // @ts-ignore
 import { createGetPlayerDetailsQueryResponseFromDiscriminatorValue, createProblemDetailsFromDiscriminatorValue, type GetPlayerDetailsQueryResponse, type ProblemDetails } from '../../../models/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { InvitationsRequestBuilderRequestsMetadata, type InvitationsRequestBuilder } from './invitations/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
- * Builds and executes requests for operations under /api/player/{id}
+ * Builds and executes requests for operations under /api/player/{-id}
  */
-export interface PlayerItemRequestBuilder extends BaseRequestBuilder<PlayerItemRequestBuilder> {
+export interface ItemRequestBuilder extends BaseRequestBuilder<ItemRequestBuilder> {
+    /**
+     * The invitations property
+     */
+    get invitations(): InvitationsRequestBuilder;
     /**
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetPlayerDetailsQueryResponse>}
@@ -26,13 +32,21 @@ export interface PlayerItemRequestBuilder extends BaseRequestBuilder<PlayerItemR
 /**
  * Uri template for the request builder.
  */
-export const PlayerItemRequestBuilderUriTemplate = "{+baseurl}/api/player/{id}";
+export const ItemRequestBuilderUriTemplate = "{+baseurl}/api/player/{%2Did}";
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const ItemRequestBuilderNavigationMetadata: Record<Exclude<keyof ItemRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    invitations: {
+        requestsMetadata: InvitationsRequestBuilderRequestsMetadata,
+    },
+};
 /**
  * Metadata for all the requests in the request builder.
  */
-export const PlayerItemRequestBuilderRequestsMetadata: RequestsMetadata = {
+export const ItemRequestBuilderRequestsMetadata: RequestsMetadata = {
     get: {
-        uriTemplate: PlayerItemRequestBuilderUriTemplate,
+        uriTemplate: ItemRequestBuilderUriTemplate,
         responseBodyContentType: "application/json",
         errorMappings: {
             401: createProblemDetailsFromDiscriminatorValue as ParsableFactory<Parsable>,

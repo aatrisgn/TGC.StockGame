@@ -29,6 +29,16 @@ public class AdminController : TgcControllerBase
 	}
 	
 	[HttpGet]
+	[Route("admin/matches/invitations")]
+	[ProducesResponseType(typeof(GetAllMatchesQueryResponse), StatusCodes.Status200OK)]
+	public async Task<IActionResult> GetAllInvitations(CancellationToken cancellationToken)
+	{
+		//TODO: Fix
+		var result = await _mediator.HandleQueryAsync<GetAllMatchesQuery, GetAllMatchesQueryResponse>(GetAllMatchesQuery.Empty(), cancellationToken);
+		return result.ToActionResult();
+	}
+	
+	[HttpGet]
 	[Route("admin/players")]
 	[ProducesResponseType(typeof(GetAllPlayersQueryResponse), StatusCodes.Status200OK)]
 	public async Task<IActionResult> GetAllPlayers(CancellationToken cancellationToken)

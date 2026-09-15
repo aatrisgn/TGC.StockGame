@@ -1,5 +1,3 @@
-using TGC.RegardedStonks.Application.Repositories.Entities;
-
 namespace TGC.RegardedStonks.Infrastructure.Entities;
 
 public abstract class BaseEntity

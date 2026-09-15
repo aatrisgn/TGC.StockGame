@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/features/overview/overview-page/overview-page.ts", "src/app/features/overview/overview-page/overview-page.html"],
-  "sourcesContent": ["import { Component, inject } from '@angular/core';\nimport { AuthState } from '../../../core/services/auth-state';\n\n@Component({\n  selector: 'app-overview-page',\n  imports: [],\n  templateUrl: './overview-page.html',\n  styleUrl: './overview-page.scss'\n})\nexport class OverviewPage {\n  protected readonly authState = inject(AuthState);\n}\n", "<section class=\"overview-page\">\n  <h1>Overview</h1>\n  <p>\n    Welcome back{{ authState.account()?.name ? ', ' + authState.account()?.name : '' }}. Your current matches and portfolio summary will\n    show up here.\n  </p>\n</section>\n"],
-  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;AASM,IAAO,eAAP,MAAO,cAAY;EACJ,YAAY,OAAO,SAAS;;qCADpC,eAAY;EAAA;yEAAZ,eAAY,WAAA,CAAA,CAAA,mBAAA,CAAA,GAAA,OAAA,GAAA,MAAA,GAAA,QAAA,CAAA,CAAA,GAAA,eAAA,CAAA,GAAA,UAAA,SAAA,sBAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;ACTzB,MAAA,4BAAA,GAAA,WAAA,CAAA,EAA+B,GAAA,IAAA;AACzB,MAAA,iBAAA,GAAA,UAAA;AAAQ,MAAA,0BAAA;AACZ,MAAA,4BAAA,GAAA,GAAA;AACE,MAAA,iBAAA,CAAA;AAEF,MAAA,0BAAA,EAAI;;;;AAFF,MAAA,oBAAA,CAAA;AAAA,MAAA,6BAAA,mBAAA,UAAA,IAAA,UAAA,QAAA,MAAA,OAAA,OAAA,QAAA,QAAA,SAAA,UAAA,IAAA,UAAA,QAAA,MAAA,OAAA,OAAA,QAAA,QAAA,IAAA,kEAAA;;;;;sEDMS,cAAY,CAAA;UANxB;uBACW,qBAAmB,SACpB,CAAA,GAAE,UAAA;;;;;;;GAAA,QAAA,CAAA,4JAAA,EAAA,CAAA;;;;6EAIA,cAAY,EAAA,WAAA,gBAAA,UAAA,4DAAA,YAAA,GAAA,CAAA;AAAA,GAAA;",
-  "names": []
-}

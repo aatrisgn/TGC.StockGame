@@ -1,4 +1,4 @@
-using TGC.RegardedStonks.Application.Repositories.Entities;
+using TGC.RegardedStonks.Domain.Entities;
 using TGC.RegardedStonks.Infrastructure.Entities;
 
 namespace TGC.RegardedStonks.Infrastructure.DTOs;

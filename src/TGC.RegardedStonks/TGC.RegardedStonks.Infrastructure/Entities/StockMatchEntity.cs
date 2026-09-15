@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TGC.RegardedStonks.Application.Repositories.Entities;
+using TGC.RegardedStonks.Domain.Entities;
 using TGC.RegardedStonks.Domain.Enums;
 
 namespace TGC.RegardedStonks.Infrastructure.Entities;
@@ -15,4 +15,16 @@ public class StockMatchEntity : BaseEntity
 	public List<PlayerEntity> Players { get; set; } = [];
 	public List<PlayerPortfolioEntity> PlayerPortfolios { get; set; } = [];
 	public List<MatchEventEntity> MatchEvents { get; set; } = [];
+	public List<MatchInvitationEntity> Invitations { get; set; } = [];
+
+	public static StockMatchEntity FromDomain(IStockMatchEntity matchEntity)
+	{
+		return new StockMatchEntity
+		{
+			Name = matchEntity.Name,
+			EndDateTime = matchEntity.EndDateTime,
+			StartingCapital = matchEntity.StartingCapital,
+			StockCompanies = matchEntity.StockCompanies.Select(StockCompanyEntity.FromDomain).ToList(),
+		};
+	}
 }

@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/features/admin/admin-events-page/admin-events-page.ts", "src/app/features/admin/admin-events-page/admin-events-page.html"],
-  "sourcesContent": ["import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-admin-events-page',\n  imports: [],\n  templateUrl: './admin-events-page.html',\n  styleUrl: './admin-events-page.scss'\n})\nexport class AdminEventsPage {}\n", "<section class=\"admin-page\">\n  <h1>All events</h1>\n  <p>Every stock/market event across matches will be listed here for admin management.</p>\n</section>\n"],
-  "mappings": ";;;;;;;;;;;;AAQM,IAAO,kBAAP,MAAO,iBAAe;;qCAAf,kBAAe;EAAA;yEAAf,kBAAe,WAAA,CAAA,CAAA,uBAAA,CAAA,GAAA,OAAA,GAAA,MAAA,GAAA,QAAA,CAAA,CAAA,GAAA,YAAA,CAAA,GAAA,UAAA,SAAA,yBAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;ACR5B,MAAA,4BAAA,GAAA,WAAA,CAAA,EAA4B,GAAA,IAAA;AACtB,MAAA,iBAAA,GAAA,YAAA;AAAU,MAAA,0BAAA;AACd,MAAA,4BAAA,GAAA,GAAA;AAAG,MAAA,iBAAA,GAAA,mFAAA;AAAiF,MAAA,0BAAA,EAAI;;;;;sEDM7E,iBAAe,CAAA;UAN3B;uBACW,yBAAuB,SACxB,CAAA,GAAE,UAAA,iKAAA,QAAA,CAAA,kKAAA,EAAA,CAAA;;;;6EAIA,iBAAe,EAAA,WAAA,mBAAA,UAAA,iEAAA,YAAA,EAAA,CAAA;AAAA,GAAA;",
-  "names": []
-}

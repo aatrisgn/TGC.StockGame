@@ -3,7 +3,7 @@ using TGC.RegardedStonks.Domain.Enums;
 
 namespace TGC.RegardedStonks.Application.Features.Matches.CreateMatchEvent;
 
-public class CreateMatchEventCommand : BaseCommand
+public record CreateMatchEventCommand : BaseCommand
 {
 	public Guid StockMatchId { get; set; }
 	public MatchEventType EventType { get; set; }

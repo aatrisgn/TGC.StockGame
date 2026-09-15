@@ -1,0 +1,42 @@
+<section class="overview-tab">
+  <dl class="overview-tab-summary">
+    <div>
+      <dt>Status</dt>
+      <dd>{{ statusLabel() }}</dd>
+    </div>
+    <div>
+      <dt>Starting capital</dt>
+      <dd>{{ startingCapital() | currency }}</dd>
+    </div>
+    <div>
+      <dt>Created</dt>
+      <dd>{{ match().created | date: 'medium' }}</dd>
+    </div>
+    <div>
+      <dt>End date</dt>
+      <dd>{{ (match().endDateTime | date: 'medium') ?? 'Not set' }}</dd>
+    </div>
+    <div>
+      <dt>Companies</dt>
+      <dd>{{ companyCount() }}</dd>
+    </div>
+    <div>
+      <dt>Players</dt>
+      <dd>{{ playerCount() }}</dd>
+    </div>
+  </dl>
+
+  <div class="overview-tab-chart">
+    <h2>Market index</h2>
+    <ngx-charts-line-chart
+      [results]="dummyChartData"
+      [xAxis]="true"
+      [yAxis]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      xAxisLabel="Time"
+      yAxisLabel="Index value"
+      scheme="cool"
+      [autoScale]="true" />
+  </div>
+</section>

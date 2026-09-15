@@ -1,0 +1,1 @@
+import"./chunk-2BAXZMGZ.js";var o=[{path:"",loadComponent:()=>import("./chunk-KY5GYXUC.js").then(t=>t.MatchesListPage)},{path:":id",loadComponent:()=>import("./chunk-PJHJ4NQI.js").then(t=>t.MatchDetailPage)}];export{o as MATCHES_ROUTES};

@@ -4,8 +4,11 @@ using TGC.RegardedStonks.Application.Events;
 using TGC.RegardedStonks.Application.Features.Admin.GetAllMatches;
 using TGC.RegardedStonks.Application.Features.Matches.CreateMatch;
 using TGC.RegardedStonks.Application.Features.Matches.CreateMatchEvent;
+using TGC.RegardedStonks.Application.Features.Matches.DeactivateMatch;
 using TGC.RegardedStonks.Application.Features.Matches.GetAvailableMatches;
 using TGC.RegardedStonks.Application.Features.Matches.GetMatchById;
+using TGC.RegardedStonks.Application.Features.MatchInvitations.GetMatchInvitations;
+using TGC.RegardedStonks.Application.Features.MatchInvitations.InvitePlayerToMatch;
 using TGC.RegardedStonks.Application.Features.Players.AddPlayer;
 using TGC.RegardedStonks.Application.Features.Players.CreatePlayerSelf;
 using TGC.RegardedStonks.Application.Features.Players.GetAllPlayers;
@@ -40,6 +43,8 @@ public static class IServiceCollectionExtensions
 		services.AddScoped<IQueryHandler, GetAllMatchesQueryHandler>();
 		services.AddScoped<IQueryHandler, GetAllPlayersQueryHandler>();
 		services.AddScoped<IQueryHandler, GetPlayerDetailsSelfQueryHandler>();
+		services.AddScoped<IQueryHandler, GetMatchInvitationsQueryHandler>();
+		services.AddScoped<IQueryHandler, GetAllMatchesQueryHandler>();
 		return services;
 	}
 
@@ -50,6 +55,8 @@ public static class IServiceCollectionExtensions
 		services.AddScoped<ICommandHandler, CreatePlayerCommandHandler>();
 		services.AddScoped<ICommandHandler, CreatePlayerSelfCommandHandler>();
 		services.AddScoped<ICommandHandler, UpdateUsernameSelfCommandHandler>();
+		services.AddScoped<ICommandHandler, DeactivateMatchCommandHandler>();
+		services.AddScoped<ICommandHandler, InvitePlayerToMatchCommandHandler>();
 		return services;
 	}
 }

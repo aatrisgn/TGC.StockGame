@@ -3,7 +3,7 @@ using TGC.RegardedStonks.Application.Repositories;
 
 namespace TGC.RegardedStonks.Application.Features.Matches.GetMatchById;
 
-public class GetMatchByIdQueryHandler : BaseQueryHandler<GetMatchByIdQuery>, IQueryHandler
+public class GetMatchByIdQueryHandler : BaseQueryHandler<GetMatchByIdQuery, GetMatchByIdQueryResponse>, IQueryHandler
 {
 	private readonly IMatchReadOnlyRepository _matchRepository;
 	public GetMatchByIdQueryHandler(IMatchReadOnlyRepository matchRepository)
@@ -18,14 +18,14 @@ public class GetMatchByIdQueryHandler : BaseQueryHandler<GetMatchByIdQuery>, IQu
 
 		if (matchEntity == null)
 		{
-			return Result<GetMatchByIdQueryResponse>.AsNotFound("No match found with id: " + parsedQuery.Id + "");
-		} 
+			return AsNotFound("No match found with id: " + parsedQuery.Id + "");
+		}
 		
 		var response = new GetMatchByIdQueryResponse
 		{
 			Match = matchEntity
 		};
 
-		return Result<GetMatchByIdQueryResponse>.AsOk(response);
+		return AsOk(response);
 	}
 }

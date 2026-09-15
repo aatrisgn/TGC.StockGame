@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TGC.RegardedStonks.Application.Repositories;
-using TGC.RegardedStonks.Application.Repositories.Entities;
+using TGC.RegardedStonks.Domain.Entities;
 using TGC.RegardedStonks.Infrastructure.DTOs;
 using TGC.RegardedStonks.Infrastructure.Persistence;
 

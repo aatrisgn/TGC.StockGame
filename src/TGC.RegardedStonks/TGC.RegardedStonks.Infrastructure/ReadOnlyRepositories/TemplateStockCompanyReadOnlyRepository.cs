@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using TGC.RegardedStonks.Application.Repositories;
-using TGC.RegardedStonks.Application.Repositories.Entities;
+using TGC.RegardedStonks.Domain.Entities;
+using TGC.RegardedStonks.Infrastructure.DTOs;
 using TGC.RegardedStonks.Infrastructure.Persistence;
 
 namespace TGC.RegardedStonks.Infrastructure.ReadOnlyRepositories;
@@ -20,7 +21,7 @@ public class TemplateStockCompanyReadOnlyRepository : ITemplateStockCompanyReadO
 			.Where(x => x.Active)
 			.ToListAsync(cancellationToken);
 
-		return entities.Cast<ITemplateStockCompany>().ToList();
+		return entities.Select(TemplateStockCompanyDto.FromEntity).ToList();
 	}
 
 	public async Task<IReadOnlySet<string>> GetExistingNamesAsync(CancellationToken cancellationToken = default)

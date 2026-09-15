@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/features/forbidden/forbidden-page/forbidden-page.ts", "src/app/features/forbidden/forbidden-page/forbidden-page.html"],
-  "sourcesContent": ["import { Component } from '@angular/core';\nimport { MatButtonModule } from '@angular/material/button';\nimport { RouterLink } from '@angular/router';\n\n@Component({\n  selector: 'app-forbidden-page',\n  imports: [MatButtonModule, RouterLink],\n  templateUrl: './forbidden-page.html',\n  styleUrl: './forbidden-page.scss'\n})\nexport class ForbiddenPage {}\n", "<section class=\"status-page\">\n  <h1>You don't have access to this.</h1>\n  <p>Your account doesn't have permission to view this page.</p>\n  <a mat-flat-button color=\"primary\" routerLink=\"/overview\">Back to Overview</a>\n</section>\n"],
-  "mappings": ";;;;;;;;;;;;;;;;;;;;AAUM,IAAO,gBAAP,MAAO,eAAa;;qCAAb,gBAAa;EAAA;yEAAb,gBAAa,WAAA,CAAA,CAAA,oBAAA,CAAA,GAAA,OAAA,GAAA,MAAA,GAAA,QAAA,CAAA,CAAA,GAAA,aAAA,GAAA,CAAA,mBAAA,IAAA,SAAA,WAAA,cAAA,WAAA,CAAA,GAAA,UAAA,SAAA,uBAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;ACV1B,MAAA,yBAAA,GAAA,WAAA,CAAA,EAA6B,GAAA,IAAA;AACvB,MAAA,iBAAA,GAAA,gCAAA;AAA8B,MAAA,uBAAA;AAClC,MAAA,yBAAA,GAAA,GAAA;AAAG,MAAA,iBAAA,GAAA,yDAAA;AAAuD,MAAA,uBAAA;AAC1D,MAAA,yBAAA,GAAA,KAAA,CAAA;AAA0D,MAAA,iBAAA,GAAA,kBAAA;AAAgB,MAAA,uBAAA,EAAI;;oBDGpE,iBAAe,WAAE,UAAU,GAAA,QAAA,CAAA,kLAAA,EAAA,CAAA;;;sEAI1B,eAAa,CAAA;UANzB;uBACW,sBAAoB,SACrB,CAAC,iBAAiB,UAAU,GAAC,UAAA;;;;;GAAA,QAAA,CAAA,kOAAA,EAAA,CAAA;;;;6EAI3B,eAAa,EAAA,WAAA,iBAAA,UAAA,+DAAA,YAAA,GAAA,CAAA;AAAA,GAAA;",
-  "names": []
-}

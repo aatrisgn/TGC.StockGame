@@ -12,8 +12,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\Matches\DeactivateMatch\" />
       <Folder Include="Features\Matches\DeleteMatch\" />
+      <Folder Include="Features\MatchInvitations\GetAllMatchInvitations\" />
     </ItemGroup>
 
 </Project>

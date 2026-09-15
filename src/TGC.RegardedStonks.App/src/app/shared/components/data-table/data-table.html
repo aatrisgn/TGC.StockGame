@@ -1,7 +1,14 @@
-<table mat-table [dataSource]="rows()" class="tgc-data-table">
+@if (filterable()) {
+  <mat-form-field appearance="outline" class="tgc-data-table-filter" subscriptSizing="dynamic">
+    <mat-label>Filter</mat-label>
+    <input matInput (input)="onFilterInput($event)" placeholder="Search all columns…" />
+  </mat-form-field>
+}
+
+<table mat-table [dataSource]="dataSource" matSort [matSortDisabled]="!sortable()" class="tgc-data-table">
   @for (column of columns(); track column.key) {
     <ng-container [matColumnDef]="column.key">
-      <th mat-header-cell *matHeaderCellDef>{{ column.label }}</th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ column.label }}</th>
       <td mat-cell *matCellDef="let row" class="tgc-mono-numeric">{{ row[column.key] }}</td>
     </ng-container>
   }

@@ -34,6 +34,7 @@
     "@microsoft/kiota-abstractions": "1.0.0-preview.102",
     "@microsoft/kiota-bundle": "1.0.0-preview.102",
     "@microsoft/kiota-serialization-json": "1.0.0-preview.102",
+    "@swimlane/ngx-charts": "23.0.0",
     "@types/node": "^26.3.0",
     "rxjs": "~7.8.0",
     "skills": "angular/skills",

@@ -4,9 +4,9 @@ using TGC.RegardedStonks.Infrastructure.Entities;
 
 namespace TGC.RegardedStonks.Infrastructure.Persistence.Configurations;
 
-public class TemplateStockCompanyEntityConfiguration : IEntityTypeConfiguration<TemplateStockCompany>
+public class TemplateStockCompanyEntityConfiguration : IEntityTypeConfiguration<TemplateStockCompanyEntity>
 {
-	public void Configure(EntityTypeBuilder<TemplateStockCompany> builder)
+	public void Configure(EntityTypeBuilder<TemplateStockCompanyEntity> builder)
 	{
 		builder.ToTable("template_stock_companies");
 

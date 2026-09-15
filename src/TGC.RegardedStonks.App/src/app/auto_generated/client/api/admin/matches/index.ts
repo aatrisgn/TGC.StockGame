@@ -4,12 +4,18 @@
 // @ts-ignore
 import { createGetAllMatchesQueryResponseFromDiscriminatorValue, createProblemDetailsFromDiscriminatorValue, type GetAllMatchesQueryResponse, type ProblemDetails } from '../../../models/index.js';
 // @ts-ignore
-import { type BaseRequestBuilder, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
+import { InvitationsRequestBuilderRequestsMetadata, type InvitationsRequestBuilder } from './invitations/index.js';
+// @ts-ignore
+import { type BaseRequestBuilder, type KeysToExcludeForNavigationMetadata, type NavigationMetadata, type Parsable, type ParsableFactory, type RequestConfiguration, type RequestInformation, type RequestsMetadata } from '@microsoft/kiota-abstractions';
 
 /**
  * Builds and executes requests for operations under /api/admin/matches
  */
 export interface MatchesRequestBuilder extends BaseRequestBuilder<MatchesRequestBuilder> {
+    /**
+     * The invitations property
+     */
+    get invitations(): InvitationsRequestBuilder;
     /**
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns {Promise<GetAllMatchesQueryResponse>}
@@ -27,6 +33,14 @@ export interface MatchesRequestBuilder extends BaseRequestBuilder<MatchesRequest
  * Uri template for the request builder.
  */
 export const MatchesRequestBuilderUriTemplate = "{+baseurl}/api/admin/matches";
+/**
+ * Metadata for all the navigation properties in the request builder.
+ */
+export const MatchesRequestBuilderNavigationMetadata: Record<Exclude<keyof MatchesRequestBuilder, KeysToExcludeForNavigationMetadata>, NavigationMetadata> = {
+    invitations: {
+        requestsMetadata: InvitationsRequestBuilderRequestsMetadata,
+    },
+};
 /**
  * Metadata for all the requests in the request builder.
  */

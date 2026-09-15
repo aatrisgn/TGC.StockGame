@@ -1,0 +1,1 @@
+import"./chunk-2BAXZMGZ.js";var o=[{path:"",loadComponent:()=>import("./chunk-E2TEYETV.js").then(t=>t.SettingsPage)},{path:"notifications",loadComponent:()=>import("./chunk-NKBRMNB4.js").then(t=>t.NotificationSettingsPage)},{path:"access-token",loadComponent:()=>import("./chunk-NPKLB2ZS.js").then(t=>t.AccessTokenPage)}];export{o as SETTINGS_ROUTES};

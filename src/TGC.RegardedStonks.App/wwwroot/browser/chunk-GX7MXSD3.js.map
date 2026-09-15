@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/features/admin/admin-matches-page/admin-matches-page.ts", "src/app/features/admin/admin-matches-page/admin-matches-page.html"],
-  "sourcesContent": ["import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-admin-matches-page',\n  imports: [],\n  templateUrl: './admin-matches-page.html',\n  styleUrl: './admin-matches-page.scss'\n})\nexport class AdminMatchesPage {}\n", "<section class=\"admin-page\">\n  <h1>All matches</h1>\n  <p>Every match in the system will be listed here for admin management.</p>\n</section>\n"],
-  "mappings": ";;;;;;;;;;;;AAQM,IAAO,mBAAP,MAAO,kBAAgB;;qCAAhB,mBAAgB;EAAA;yEAAhB,mBAAgB,WAAA,CAAA,CAAA,wBAAA,CAAA,GAAA,OAAA,GAAA,MAAA,GAAA,QAAA,CAAA,CAAA,GAAA,YAAA,CAAA,GAAA,UAAA,SAAA,0BAAA,IAAA,KAAA;AAAA,QAAA,KAAA,GAAA;ACR7B,MAAA,4BAAA,GAAA,WAAA,CAAA,EAA4B,GAAA,IAAA;AACtB,MAAA,iBAAA,GAAA,aAAA;AAAW,MAAA,0BAAA;AACf,MAAA,4BAAA,GAAA,GAAA;AAAG,MAAA,iBAAA,GAAA,qEAAA;AAAmE,MAAA,0BAAA,EAAI;;;;;sEDM/D,kBAAgB,CAAA;UAN5B;uBACW,0BAAwB,SACzB,CAAA,GAAE,UAAA,oJAAA,QAAA,CAAA,qKAAA,EAAA,CAAA;;;;6EAIA,kBAAgB,EAAA,WAAA,oBAAA,UAAA,mEAAA,YAAA,EAAA,CAAA;AAAA,GAAA;",
-  "names": []
-}

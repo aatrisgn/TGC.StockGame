@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/features/admin/admin.routes.ts"],
-  "sourcesContent": ["import { Routes } from '@angular/router';\n\nexport const ADMIN_ROUTES: Routes = [\n  {\n    path: 'matches',\n    loadComponent: () => import('./admin-matches-page/admin-matches-page').then((m) => m.AdminMatchesPage)\n  },\n  {\n    path: 'players',\n    loadComponent: () => import('./admin-players-page/admin-players-page').then((m) => m.AdminPlayersPage)\n  },\n  {\n    path: 'events',\n    loadComponent: () => import('./admin-events-page/admin-events-page').then((m) => m.AdminEventsPage)\n  },\n  { path: '', redirectTo: 'matches', pathMatch: 'full' }\n];\n"],
-  "mappings": ";;;AAEO,IAAM,eAAuB;EAClC;IACE,MAAM;IACN,eAAe,MAAM,OAAO,qBAAyC,EAAE,KAAK,CAAC,MAAM,EAAE,gBAAgB;;EAEvG;IACE,MAAM;IACN,eAAe,MAAM,OAAO,qBAAyC,EAAE,KAAK,CAAC,MAAM,EAAE,gBAAgB;;EAEvG;IACE,MAAM;IACN,eAAe,MAAM,OAAO,qBAAuC,EAAE,KAAK,CAAC,MAAM,EAAE,eAAe;;EAEpG,EAAE,MAAM,IAAI,YAAY,WAAW,WAAW,OAAM;;",
-  "names": []
-}

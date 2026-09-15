@@ -5,8 +5,11 @@ using TGC.Communication.cqrs;
 using TGC.RegardedStonks.Api.Contracts;
 using TGC.RegardedStonks.Application.Features.Matches.CreateMatch;
 using TGC.RegardedStonks.Application.Features.Matches.CreateMatchEvent;
+using TGC.RegardedStonks.Application.Features.Matches.DeactivateMatch;
 using TGC.RegardedStonks.Application.Features.Matches.GetAvailableMatches;
 using TGC.RegardedStonks.Application.Features.Matches.GetMatchById;
+using TGC.RegardedStonks.Application.Features.Matches.InvitePlayerToMatch;
+using TGC.RegardedStonks.Application.Features.Matches.UpdateMatchInvitation;
 
 namespace TGC.RegardedStonks.Api.Controllers;
 
@@ -28,6 +31,16 @@ public class MatchesController : TgcControllerBase
 		var matchesResult = await _mediator.HandleQueryAsync<GetAvailableMatchesQuery, GetAvailableMatchesQueryResponse>(GetAvailableMatchesQuery.Empty(), cancellationToken);
 		return matchesResult.ToActionResult();
 	}
+	
+	[HttpGet]
+	[Route("matches/{id:guid}")]
+	[ProducesResponseType(typeof(GetMatchByIdQueryResponse), StatusCodes.Status200OK)]
+	[ProducesResponseType(StatusCodes.Status404NotFound)]
+	public async Task<IActionResult> GetMatchDetails(Guid id, CancellationToken cancellationToken)
+	{
+		var matchesResult = await _mediator.HandleQueryAsync<GetMatchByIdQuery, GetMatchByIdQueryResponse>(GetMatchByIdQuery.ForId(id), cancellationToken);
+		return matchesResult.ToActionResult();
+	}
 
 	[HttpPost]
 	[Route("matches")]
@@ -46,26 +59,8 @@ public class MatchesController : TgcControllerBase
 	[ProducesResponseType(StatusCodes.Status409Conflict)]
 	public async Task<IActionResult> DeactivateMatch(Guid id, CancellationToken cancellationToken)
 	{
-		return ApiResult.FromStatusCode(HttpStatusCode.NoContent).ToActionResult();
-	}
-	
-	[HttpDelete]
-	[Route("matches/archive/{id:guid}")]
-	[ProducesResponseType(StatusCodes.Status204NoContent)]
-	[ProducesResponseType(StatusCodes.Status404NotFound)]
-	public async Task<IActionResult> DeleteMatch(Guid id, CancellationToken cancellationToken)
-	{
-		return ApiResult.FromStatusCode(HttpStatusCode.NoContent).ToActionResult();
-	}
-	
-	[HttpGet]
-	[Route("matches/{id:guid}/companies")]
-	[ProducesResponseType(typeof(GetAvailableMatchesQueryResponse), StatusCodes.Status200OK)]
-	[ProducesResponseType(StatusCodes.Status404NotFound)]
-	public async Task<IActionResult> GetCompaniesInMatch(Guid id, CancellationToken cancellationToken)
-	{
-		var matchesResult = await _mediator.HandleQueryAsync<GetMatchByIdQuery, GetAvailableMatchesQueryResponse>(GetMatchByIdQuery.ForId(id), cancellationToken);
-		return matchesResult.ToActionResult();
+		var createMatchResult = await _mediator.HandleCommandAsync<DeactivateMatchCommand, DeactivateMatchCommandResponse>(DeactivateMatchCommand.ForId(id), cancellationToken);
+		return createMatchResult.ToActionResult();
 	}
 
 	[HttpPost]

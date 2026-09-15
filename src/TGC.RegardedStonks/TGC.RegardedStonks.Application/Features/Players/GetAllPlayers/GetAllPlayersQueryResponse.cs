@@ -1,5 +1,5 @@
 using TGC.Communication.cqrs;
-using TGC.RegardedStonks.Application.Repositories.Entities;
+using TGC.RegardedStonks.Domain.Entities;
 
 namespace TGC.RegardedStonks.Application.Features.Players.GetAllPlayers;
 

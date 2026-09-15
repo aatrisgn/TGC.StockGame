@@ -12,10 +12,11 @@ public abstract class RegardedStonksDbContextBase : DbContext
 	public DbSet<StockMatchEntity> StockMatches => Set<StockMatchEntity>();
 	public DbSet<StockCompanyEntity> StockCompanies => Set<StockCompanyEntity>();
 	public DbSet<PlayerEntity> Players => Set<PlayerEntity>();
-	public DbSet<TemplateStockCompany> TemplateStockCompanies => Set<TemplateStockCompany>();
+	public DbSet<TemplateStockCompanyEntity> TemplateStockCompanies => Set<TemplateStockCompanyEntity>();
 	public DbSet<PlayerPortfolioEntity> PlayerPortfolios => Set<PlayerPortfolioEntity>();
 	public DbSet<PlayerStockPortfolioEntity> PlayerStockPortfolios => Set<PlayerStockPortfolioEntity>();
 	public DbSet<MatchEventEntity> MatchEvents => Set<MatchEventEntity>();
+	public DbSet<MatchInvitationEntity> MatchInvitations => Set<MatchInvitationEntity>();
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{

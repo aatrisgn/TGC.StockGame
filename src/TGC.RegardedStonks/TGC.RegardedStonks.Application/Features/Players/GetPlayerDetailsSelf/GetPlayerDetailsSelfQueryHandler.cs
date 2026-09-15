@@ -3,7 +3,7 @@ using TGC.RegardedStonks.Application.Repositories;
 
 namespace TGC.RegardedStonks.Application.Features.Players.GetPlayerDetailsSelf;
 
-public class GetPlayerDetailsSelfQueryHandler : BaseQueryHandler<GetPlayerDetailsSelfQuery>, IQueryHandler
+public class GetPlayerDetailsSelfQueryHandler : BaseQueryHandler<GetPlayerDetailsSelfQuery, GetPlayerDetailsSelfQueryResponse>, IQueryHandler
 {
 	private readonly IUserContextService _userContextService;
 	private readonly IPlayerReadOnlyRepository _playerReadOnlyRepository;
@@ -21,7 +21,7 @@ public class GetPlayerDetailsSelfQueryHandler : BaseQueryHandler<GetPlayerDetail
 
 		if (playerEntity == null)
 		{
-			return Result<GetPlayerDetailsSelfQueryResponse>.AsNotFound("No player found");
+			return AsNotFound("No player found");
 		}
 
 		var response = new GetPlayerDetailsSelfQueryResponse
@@ -33,6 +33,6 @@ public class GetPlayerDetailsSelfQueryHandler : BaseQueryHandler<GetPlayerDetail
 			Active = playerEntity.Active
 		};
 
-		return Result<GetPlayerDetailsSelfQueryResponse>.AsOk(response);
+		return AsOk(response);
 	}
 }

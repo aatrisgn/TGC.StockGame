@@ -1,0 +1,36 @@
+.overview-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+}
+
+.overview-tab-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 1rem;
+  margin: 0;
+
+  dt {
+    font-size: 0.8rem;
+    color: var(--mat-sys-on-surface-variant);
+  }
+
+  dd {
+    margin: 0;
+    font-size: 1.1rem;
+  }
+}
+
+.overview-tab-chart {
+  height: 20rem;
+
+  h2 {
+    margin: 0 0 0.5rem;
+  }
+
+  ngx-charts-line-chart {
+    display: block;
+    height: 100%;
+  }
+}

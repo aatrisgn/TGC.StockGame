@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/features/admin/admin-matches-page/admin-matches-page.scss"],
-  "sourcesContent": [".admin-page {\n  padding: 1.5rem;\n}\n"],
-  "mappings": ";AAAA,CAAA;AACE,WAAA;;",
-  "names": []
-}

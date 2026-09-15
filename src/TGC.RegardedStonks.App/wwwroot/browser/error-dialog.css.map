@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["src/app/shared/components/error-dialog/error-dialog.scss"],
-  "sourcesContent": [".error-dialog__ids {\n  display: grid;\n  grid-template-columns: auto 1fr;\n  column-gap: 0.75rem;\n  row-gap: 0.25rem;\n  margin-top: 1rem;\n  font-size: 0.85rem;\n\n  dt {\n    font-weight: 600;\n    opacity: 0.7;\n  }\n\n  dd {\n    margin: 0;\n  }\n}\n"],
-  "mappings": ";AAAA,CAAA;AACE,WAAA;AACA,yBAAA,KAAA;AACA,cAAA;AACA,WAAA;AACA,cAAA;AACA,aAAA;;AAEA,CARF,kBAQE;AACE,eAAA;AACA,WAAA;;AAGF,CAbF,kBAaE;AACE,UAAA;;",
-  "names": []
-}

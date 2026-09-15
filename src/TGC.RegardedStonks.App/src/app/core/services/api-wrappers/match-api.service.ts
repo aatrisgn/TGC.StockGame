@@ -27,4 +27,9 @@ export class MatchApiService {
     });
     this.refresh();
   }
+
+  async deleteMatch(id: string): Promise<void> {
+    await this.apiClient.api.matches.byId(id).delete();
+    this.refresh();
+  }
 }

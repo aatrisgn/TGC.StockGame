@@ -3,7 +3,7 @@ using TGC.RegardedStonks.Application.Repositories;
 
 namespace TGC.RegardedStonks.Application.Features.Players.GetAllPlayers;
 
-public class GetAllPlayersQueryHandler: BaseQueryHandler<GetAllPlayersQuery>, IQueryHandler
+public class GetAllPlayersQueryHandler: BaseQueryHandler<GetAllPlayersQuery, GetAllPlayersQueryResponse>, IQueryHandler
 {
 	private readonly IPlayerReadOnlyRepository _playerRepository;
 	public GetAllPlayersQueryHandler(IPlayerReadOnlyRepository playerRepository)
@@ -15,7 +15,7 @@ public class GetAllPlayersQueryHandler: BaseQueryHandler<GetAllPlayersQuery>, IQ
 	{
 		var allPlayers = await _playerRepository.GetAllAsync();
 
-		return Result<GetAllPlayersQueryResponse>.AsOk(new GetAllPlayersQueryResponse
+		return AsOk(new GetAllPlayersQueryResponse
 		{
 			Players = allPlayers.ToList()
 		});

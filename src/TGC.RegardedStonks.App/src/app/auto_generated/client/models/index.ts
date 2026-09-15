@@ -34,6 +34,15 @@ export function createCreateMatchEventRequestFromDiscriminatorValue(parseNode: P
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {CreateMatchInvitationRequest}
+ */
+// @ts-ignore
+export function createCreateMatchInvitationRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoCreateMatchInvitationRequest;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {CreateMatchRequest}
  */
 // @ts-ignore
@@ -97,6 +106,24 @@ export function createGetAvailableMatchesQueryResponseFromDiscriminatorValue(par
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {GetMatchByIdQueryResponse}
+ */
+// @ts-ignore
+export function createGetMatchByIdQueryResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetMatchByIdQueryResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {GetMatchInvitationsQueryRespone}
+ */
+// @ts-ignore
+export function createGetMatchInvitationsQueryResponeFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoGetMatchInvitationsQueryRespone;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {GetPlayerDetailsQueryResponse}
  */
 // @ts-ignore
@@ -133,6 +160,24 @@ export function createIMatchEventEntityFromDiscriminatorValue(parseNode: ParseNo
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {IMatchInvitationEntity}
+ */
+// @ts-ignore
+export function createIMatchInvitationEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIMatchInvitationEntity;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {InvitePlayerToMatchCommandResponse}
+ */
+// @ts-ignore
+export function createInvitePlayerToMatchCommandResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoInvitePlayerToMatchCommandResponse;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
  * @returns {IPlayerEntity}
  */
 // @ts-ignore
@@ -151,11 +196,11 @@ export function createIPlayerPortfolioFromDiscriminatorValue(parseNode: ParseNod
 /**
  * Creates a new instance of the appropriate class based on discriminator value
  * @param parseNode The parse node to use to read the discriminator value and create the object
- * @returns {IStockCompany}
+ * @returns {IStockCompanyEntity}
  */
 // @ts-ignore
-export function createIStockCompanyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
-    return deserializeIntoIStockCompany;
+export function createIStockCompanyEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoIStockCompanyEntity;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -195,6 +240,12 @@ export interface CreateMatchEventRequest extends AdditionalDataHolder, Parsable 
      * The payload property
      */
     payload?: UntypedNode | null;
+}
+export interface CreateMatchInvitationRequest extends AdditionalDataHolder, Parsable {
+    /**
+     * The playerId property
+     */
+    playerId?: Guid | null;
 }
 export interface CreateMatchRequest extends AdditionalDataHolder, Parsable {
     /**
@@ -236,6 +287,15 @@ export interface CreatePlayerSelfCommandResponse extends AdditionalDataHolder, P
 // @ts-ignore
 export function createProblemDetailsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
     return deserializeIntoProblemDetails;
+}
+/**
+ * Creates a new instance of the appropriate class based on discriminator value
+ * @param parseNode The parse node to use to read the discriminator value and create the object
+ * @returns {UpdateMatchInvitationRequest}
+ */
+// @ts-ignore
+export function createUpdateMatchInvitationRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : ((instance?: Parsable) => Record<string, (node: ParseNode) => void>) {
+    return deserializeIntoUpdateMatchInvitationRequest;
 }
 /**
  * Creates a new instance of the appropriate class based on discriminator value
@@ -289,6 +349,17 @@ export function deserializeIntoCreateMatchEventRequest(createMatchEventRequest: 
     return {
         "eventType": n => { createMatchEventRequest.eventType = n.getNumberValue(); },
         "payload": n => { createMatchEventRequest.payload = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param CreateMatchInvitationRequest The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoCreateMatchInvitationRequest(createMatchInvitationRequest: Partial<CreateMatchInvitationRequest> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "playerId": n => { createMatchInvitationRequest.playerId = n.getGuidValue(); },
     }
 }
 /**
@@ -367,8 +438,30 @@ export function deserializeIntoGetAllPlayersQueryResponse(getAllPlayersQueryResp
 // @ts-ignore
 export function deserializeIntoGetAvailableMatchesQueryResponse(getAvailableMatchesQueryResponse: Partial<GetAvailableMatchesQueryResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "companies": n => { getAvailableMatchesQueryResponse.companies = n.getCollectionOfObjectValues<IStockCompany>(createIStockCompanyFromDiscriminatorValue); },
+        "companies": n => { getAvailableMatchesQueryResponse.companies = n.getCollectionOfObjectValues<IStockCompanyEntity>(createIStockCompanyEntityFromDiscriminatorValue); },
         "matches": n => { getAvailableMatchesQueryResponse.matches = n.getCollectionOfObjectValues<IStockMatchEntity>(createIStockMatchEntityFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param GetMatchByIdQueryResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoGetMatchByIdQueryResponse(getMatchByIdQueryResponse: Partial<GetMatchByIdQueryResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "match": n => { getMatchByIdQueryResponse.match = n.getObjectValue<IStockMatchEntity>(createIStockMatchEntityFromDiscriminatorValue); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param GetMatchInvitationsQueryRespone The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoGetMatchInvitationsQueryRespone(getMatchInvitationsQueryRespone: Partial<GetMatchInvitationsQueryRespone> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "invitations": n => { getMatchInvitationsQueryRespone.invitations = n.getCollectionOfObjectValues<IMatchInvitationEntity>(createIMatchInvitationEntityFromDiscriminatorValue); },
     }
 }
 /**
@@ -428,6 +521,37 @@ export function deserializeIntoIMatchEventEntity(iMatchEventEntity: Partial<IMat
 }
 /**
  * The deserialization information for the current model
+ * @param IMatchInvitationEntity The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoIMatchInvitationEntity(iMatchInvitationEntity: Partial<IMatchInvitationEntity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "active": n => { iMatchInvitationEntity.active = n.getBooleanValue(); },
+        "authorId": n => { iMatchInvitationEntity.authorId = n.getGuidValue(); },
+        "created": n => { iMatchInvitationEntity.created = n.getDateValue(); },
+        "createdBy": n => { iMatchInvitationEntity.createdBy = n.getGuidValue(); },
+        "id": n => { iMatchInvitationEntity.id = n.getGuidValue(); },
+        "lastEdited": n => { iMatchInvitationEntity.lastEdited = n.getDateValue(); },
+        "playerId": n => { iMatchInvitationEntity.playerId = n.getGuidValue(); },
+        "status": n => { iMatchInvitationEntity.status = n.getNumberValue(); },
+        "stockMatchId": n => { iMatchInvitationEntity.stockMatchId = n.getGuidValue(); },
+        "updatedBy": n => { iMatchInvitationEntity.updatedBy = n.getGuidValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param InvitePlayerToMatchCommandResponse The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoInvitePlayerToMatchCommandResponse(invitePlayerToMatchCommandResponse: Partial<InvitePlayerToMatchCommandResponse> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "invitationId": n => { invitePlayerToMatchCommandResponse.invitationId = n.getGuidValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
  * @param IPlayerEntity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
@@ -468,32 +592,32 @@ export function deserializeIntoIPlayerPortfolio(iPlayerPortfolio: Partial<IPlaye
 }
 /**
  * The deserialization information for the current model
- * @param IStockCompany The instance to deserialize into.
+ * @param IStockCompanyEntity The instance to deserialize into.
  * @returns {Record<string, (node: ParseNode) => void>}
  */
 // @ts-ignore
-export function deserializeIntoIStockCompany(iStockCompany: Partial<IStockCompany> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+export function deserializeIntoIStockCompanyEntity(iStockCompanyEntity: Partial<IStockCompanyEntity> | undefined = {}) : Record<string, (node: ParseNode) => void> {
     return {
-        "active": n => { iStockCompany.active = n.getBooleanValue(); },
-        "availableStocks": n => { iStockCompany.availableStocks = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
-        "bankrupt": n => { iStockCompany.bankrupt = n.getBooleanValue(); },
-        "created": n => { iStockCompany.created = n.getDateValue(); },
-        "createdBy": n => { iStockCompany.createdBy = n.getGuidValue(); },
-        "description": n => { iStockCompany.description = n.getStringValue(); },
-        "id": n => { iStockCompany.id = n.getGuidValue(); },
-        "lastEdited": n => { iStockCompany.lastEdited = n.getDateValue(); },
-        "lastReportedProfit": n => { iStockCompany.lastReportedProfit = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
-        "lastReportedRevenue": n => { iStockCompany.lastReportedRevenue = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
-        "liquidAssets": n => { iStockCompany.liquidAssets = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
-        "longTermDebt": n => { iStockCompany.longTermDebt = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
-        "name": n => { iStockCompany.name = n.getStringValue(); },
-        "nonLiquidAssets": n => { iStockCompany.nonLiquidAssets = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
-        "price": n => { iStockCompany.price = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
-        "shortName": n => { iStockCompany.shortName = n.getStringValue(); },
-        "shortTermDebt": n => { iStockCompany.shortTermDebt = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
-        "stockMatchId": n => { iStockCompany.stockMatchId = n.getGuidValue(); },
-        "totalStocks": n => { iStockCompany.totalStocks = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
-        "updatedBy": n => { iStockCompany.updatedBy = n.getGuidValue(); },
+        "active": n => { iStockCompanyEntity.active = n.getBooleanValue(); },
+        "availableStocks": n => { iStockCompanyEntity.availableStocks = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "bankrupt": n => { iStockCompanyEntity.bankrupt = n.getBooleanValue(); },
+        "created": n => { iStockCompanyEntity.created = n.getDateValue(); },
+        "createdBy": n => { iStockCompanyEntity.createdBy = n.getGuidValue(); },
+        "description": n => { iStockCompanyEntity.description = n.getStringValue(); },
+        "id": n => { iStockCompanyEntity.id = n.getGuidValue(); },
+        "lastEdited": n => { iStockCompanyEntity.lastEdited = n.getDateValue(); },
+        "lastReportedProfit": n => { iStockCompanyEntity.lastReportedProfit = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "lastReportedRevenue": n => { iStockCompanyEntity.lastReportedRevenue = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "liquidAssets": n => { iStockCompanyEntity.liquidAssets = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "longTermDebt": n => { iStockCompanyEntity.longTermDebt = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "name": n => { iStockCompanyEntity.name = n.getStringValue(); },
+        "nonLiquidAssets": n => { iStockCompanyEntity.nonLiquidAssets = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "price": n => { iStockCompanyEntity.price = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "shortName": n => { iStockCompanyEntity.shortName = n.getStringValue(); },
+        "shortTermDebt": n => { iStockCompanyEntity.shortTermDebt = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "stockMatchId": n => { iStockCompanyEntity.stockMatchId = n.getGuidValue(); },
+        "totalStocks": n => { iStockCompanyEntity.totalStocks = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
+        "updatedBy": n => { iStockCompanyEntity.updatedBy = n.getGuidValue(); },
     }
 }
 /**
@@ -516,7 +640,7 @@ export function deserializeIntoIStockMatchEntity(iStockMatchEntity: Partial<ISto
         "players": n => { iStockMatchEntity.players = n.getCollectionOfObjectValues<IPlayerEntity>(createIPlayerEntityFromDiscriminatorValue); },
         "startingCapital": n => { iStockMatchEntity.startingCapital = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
         "status": n => { iStockMatchEntity.status = n.getNumberValue(); },
-        "stockCompanies": n => { iStockMatchEntity.stockCompanies = n.getCollectionOfObjectValues<IStockCompany>(createIStockCompanyFromDiscriminatorValue); },
+        "stockCompanies": n => { iStockMatchEntity.stockCompanies = n.getCollectionOfObjectValues<IStockCompanyEntity>(createIStockCompanyEntityFromDiscriminatorValue); },
         "updatedBy": n => { iStockMatchEntity.updatedBy = n.getGuidValue(); },
     }
 }
@@ -533,6 +657,17 @@ export function deserializeIntoProblemDetails(problemDetails: Partial<ProblemDet
         "status": n => { problemDetails.status = n.getObjectValue<UntypedNode>(createUntypedNodeFromDiscriminatorValue); },
         "title": n => { problemDetails.title = n.getStringValue(); },
         "type": n => { problemDetails.type = n.getStringValue(); },
+    }
+}
+/**
+ * The deserialization information for the current model
+ * @param UpdateMatchInvitationRequest The instance to deserialize into.
+ * @returns {Record<string, (node: ParseNode) => void>}
+ */
+// @ts-ignore
+export function deserializeIntoUpdateMatchInvitationRequest(updateMatchInvitationRequest: Partial<UpdateMatchInvitationRequest> | undefined = {}) : Record<string, (node: ParseNode) => void> {
+    return {
+        "status": n => { updateMatchInvitationRequest.status = n.getNumberValue(); },
     }
 }
 /**
@@ -574,11 +709,23 @@ export interface GetAvailableMatchesQueryResponse extends AdditionalDataHolder, 
     /**
      * The companies property
      */
-    companies?: IStockCompany[] | null;
+    companies?: IStockCompanyEntity[] | null;
     /**
      * The matches property
      */
     matches?: IStockMatchEntity[] | null;
+}
+export interface GetMatchByIdQueryResponse extends AdditionalDataHolder, Parsable {
+    /**
+     * The match property
+     */
+    match?: IStockMatchEntity | null;
+}
+export interface GetMatchInvitationsQueryRespone extends AdditionalDataHolder, Parsable {
+    /**
+     * The invitations property
+     */
+    invitations?: IMatchInvitationEntity[] | null;
 }
 export interface GetPlayerDetailsQueryResponse extends AdditionalDataHolder, Parsable {
 }
@@ -647,6 +794,54 @@ export interface IMatchEventEntity extends AdditionalDataHolder, Parsable {
      * The updatedBy property
      */
     updatedBy?: Guid | null;
+}
+export interface IMatchInvitationEntity extends AdditionalDataHolder, Parsable {
+    /**
+     * The active property
+     */
+    active?: boolean | null;
+    /**
+     * The authorId property
+     */
+    authorId?: Guid | null;
+    /**
+     * The created property
+     */
+    created?: Date | null;
+    /**
+     * The createdBy property
+     */
+    createdBy?: Guid | null;
+    /**
+     * The id property
+     */
+    id?: Guid | null;
+    /**
+     * The lastEdited property
+     */
+    lastEdited?: Date | null;
+    /**
+     * The playerId property
+     */
+    playerId?: Guid | null;
+    /**
+     * The status property
+     */
+    status?: number | null;
+    /**
+     * The stockMatchId property
+     */
+    stockMatchId?: Guid | null;
+    /**
+     * The updatedBy property
+     */
+    updatedBy?: Guid | null;
+}
+export interface InvitePlayerToMatchCommandResponse extends AdditionalDataHolder, Parsable {
+    /**
+     * The invitationId property
+     */
+    invitationId?: Guid | null;
 }
 export interface IPlayerEntity extends AdditionalDataHolder, Parsable {
     /**
@@ -732,7 +927,7 @@ export interface IPlayerPortfolio extends AdditionalDataHolder, Parsable {
      */
     updatedBy?: Guid | null;
 }
-export interface IStockCompany extends AdditionalDataHolder, Parsable {
+export interface IStockCompanyEntity extends AdditionalDataHolder, Parsable {
     /**
      * The active property
      */
@@ -866,7 +1061,7 @@ export interface IStockMatchEntity extends AdditionalDataHolder, Parsable {
     /**
      * The stockCompanies property
      */
-    stockCompanies?: IStockCompany[] | null;
+    stockCompanies?: IStockCompanyEntity[] | null;
     /**
      * The updatedBy property
      */
@@ -932,6 +1127,18 @@ export function serializeCreateMatchEventRequest(writer: SerializationWriter, cr
     writer.writeNumberValue("eventType", createMatchEventRequest.eventType);
     writer.writeObjectValue("payload", createMatchEventRequest.payload);
     writer.writeAdditionalData(createMatchEventRequest.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param CreateMatchInvitationRequest The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeCreateMatchInvitationRequest(writer: SerializationWriter, createMatchInvitationRequest: Partial<CreateMatchInvitationRequest> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!createMatchInvitationRequest || isSerializingDerivedType) { return; }
+    writer.writeGuidValue("playerId", createMatchInvitationRequest.playerId);
+    writer.writeAdditionalData(createMatchInvitationRequest.additionalData);
 }
 /**
  * Serializes information the current object
@@ -1016,9 +1223,33 @@ export function serializeGetAllPlayersQueryResponse(writer: SerializationWriter,
 // @ts-ignore
 export function serializeGetAvailableMatchesQueryResponse(writer: SerializationWriter, getAvailableMatchesQueryResponse: Partial<GetAvailableMatchesQueryResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
     if (!getAvailableMatchesQueryResponse || isSerializingDerivedType) { return; }
-    writer.writeCollectionOfObjectValues<IStockCompany>("companies", getAvailableMatchesQueryResponse.companies, serializeIStockCompany);
+    writer.writeCollectionOfObjectValues<IStockCompanyEntity>("companies", getAvailableMatchesQueryResponse.companies, serializeIStockCompanyEntity);
     writer.writeCollectionOfObjectValues<IStockMatchEntity>("matches", getAvailableMatchesQueryResponse.matches, serializeIStockMatchEntity);
     writer.writeAdditionalData(getAvailableMatchesQueryResponse.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param GetMatchByIdQueryResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeGetMatchByIdQueryResponse(writer: SerializationWriter, getMatchByIdQueryResponse: Partial<GetMatchByIdQueryResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getMatchByIdQueryResponse || isSerializingDerivedType) { return; }
+    writer.writeObjectValue<IStockMatchEntity>("match", getMatchByIdQueryResponse.match, serializeIStockMatchEntity);
+    writer.writeAdditionalData(getMatchByIdQueryResponse.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param GetMatchInvitationsQueryRespone The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeGetMatchInvitationsQueryRespone(writer: SerializationWriter, getMatchInvitationsQueryRespone: Partial<GetMatchInvitationsQueryRespone> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!getMatchInvitationsQueryRespone || isSerializingDerivedType) { return; }
+    writer.writeCollectionOfObjectValues<IMatchInvitationEntity>("invitations", getMatchInvitationsQueryRespone.invitations, serializeIMatchInvitationEntity);
+    writer.writeAdditionalData(getMatchInvitationsQueryRespone.additionalData);
 }
 /**
  * Serializes information the current object
@@ -1081,6 +1312,39 @@ export function serializeIMatchEventEntity(writer: SerializationWriter, iMatchEv
 }
 /**
  * Serializes information the current object
+ * @param IMatchInvitationEntity The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeIMatchInvitationEntity(writer: SerializationWriter, iMatchInvitationEntity: Partial<IMatchInvitationEntity> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!iMatchInvitationEntity || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("active", iMatchInvitationEntity.active);
+    writer.writeGuidValue("authorId", iMatchInvitationEntity.authorId);
+    writer.writeDateValue("created", iMatchInvitationEntity.created);
+    writer.writeGuidValue("createdBy", iMatchInvitationEntity.createdBy);
+    writer.writeGuidValue("id", iMatchInvitationEntity.id);
+    writer.writeDateValue("lastEdited", iMatchInvitationEntity.lastEdited);
+    writer.writeGuidValue("playerId", iMatchInvitationEntity.playerId);
+    writer.writeNumberValue("status", iMatchInvitationEntity.status);
+    writer.writeGuidValue("stockMatchId", iMatchInvitationEntity.stockMatchId);
+    writer.writeGuidValue("updatedBy", iMatchInvitationEntity.updatedBy);
+    writer.writeAdditionalData(iMatchInvitationEntity.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param InvitePlayerToMatchCommandResponse The instance to serialize from.
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeInvitePlayerToMatchCommandResponse(writer: SerializationWriter, invitePlayerToMatchCommandResponse: Partial<InvitePlayerToMatchCommandResponse> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!invitePlayerToMatchCommandResponse || isSerializingDerivedType) { return; }
+    writer.writeGuidValue("invitationId", invitePlayerToMatchCommandResponse.invitationId);
+    writer.writeAdditionalData(invitePlayerToMatchCommandResponse.additionalData);
+}
+/**
+ * Serializes information the current object
  * @param IPlayerEntity The instance to serialize from.
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
  * @param writer Serialization writer to use to serialize this model
@@ -1124,33 +1388,33 @@ export function serializeIPlayerPortfolio(writer: SerializationWriter, iPlayerPo
 /**
  * Serializes information the current object
  * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
- * @param IStockCompany The instance to serialize from.
+ * @param IStockCompanyEntity The instance to serialize from.
  * @param writer Serialization writer to use to serialize this model
  */
 // @ts-ignore
-export function serializeIStockCompany(writer: SerializationWriter, iStockCompany: Partial<IStockCompany> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
-    if (!iStockCompany || isSerializingDerivedType) { return; }
-    writer.writeBooleanValue("active", iStockCompany.active);
-    writer.writeObjectValue("availableStocks", iStockCompany.availableStocks);
-    writer.writeBooleanValue("bankrupt", iStockCompany.bankrupt);
-    writer.writeDateValue("created", iStockCompany.created);
-    writer.writeGuidValue("createdBy", iStockCompany.createdBy);
-    writer.writeStringValue("description", iStockCompany.description);
-    writer.writeGuidValue("id", iStockCompany.id);
-    writer.writeDateValue("lastEdited", iStockCompany.lastEdited);
-    writer.writeObjectValue("lastReportedProfit", iStockCompany.lastReportedProfit);
-    writer.writeObjectValue("lastReportedRevenue", iStockCompany.lastReportedRevenue);
-    writer.writeObjectValue("liquidAssets", iStockCompany.liquidAssets);
-    writer.writeObjectValue("longTermDebt", iStockCompany.longTermDebt);
-    writer.writeStringValue("name", iStockCompany.name);
-    writer.writeObjectValue("nonLiquidAssets", iStockCompany.nonLiquidAssets);
-    writer.writeObjectValue("price", iStockCompany.price);
-    writer.writeStringValue("shortName", iStockCompany.shortName);
-    writer.writeObjectValue("shortTermDebt", iStockCompany.shortTermDebt);
-    writer.writeGuidValue("stockMatchId", iStockCompany.stockMatchId);
-    writer.writeObjectValue("totalStocks", iStockCompany.totalStocks);
-    writer.writeGuidValue("updatedBy", iStockCompany.updatedBy);
-    writer.writeAdditionalData(iStockCompany.additionalData);
+export function serializeIStockCompanyEntity(writer: SerializationWriter, iStockCompanyEntity: Partial<IStockCompanyEntity> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!iStockCompanyEntity || isSerializingDerivedType) { return; }
+    writer.writeBooleanValue("active", iStockCompanyEntity.active);
+    writer.writeObjectValue("availableStocks", iStockCompanyEntity.availableStocks);
+    writer.writeBooleanValue("bankrupt", iStockCompanyEntity.bankrupt);
+    writer.writeDateValue("created", iStockCompanyEntity.created);
+    writer.writeGuidValue("createdBy", iStockCompanyEntity.createdBy);
+    writer.writeStringValue("description", iStockCompanyEntity.description);
+    writer.writeGuidValue("id", iStockCompanyEntity.id);
+    writer.writeDateValue("lastEdited", iStockCompanyEntity.lastEdited);
+    writer.writeObjectValue("lastReportedProfit", iStockCompanyEntity.lastReportedProfit);
+    writer.writeObjectValue("lastReportedRevenue", iStockCompanyEntity.lastReportedRevenue);
+    writer.writeObjectValue("liquidAssets", iStockCompanyEntity.liquidAssets);
+    writer.writeObjectValue("longTermDebt", iStockCompanyEntity.longTermDebt);
+    writer.writeStringValue("name", iStockCompanyEntity.name);
+    writer.writeObjectValue("nonLiquidAssets", iStockCompanyEntity.nonLiquidAssets);
+    writer.writeObjectValue("price", iStockCompanyEntity.price);
+    writer.writeStringValue("shortName", iStockCompanyEntity.shortName);
+    writer.writeObjectValue("shortTermDebt", iStockCompanyEntity.shortTermDebt);
+    writer.writeGuidValue("stockMatchId", iStockCompanyEntity.stockMatchId);
+    writer.writeObjectValue("totalStocks", iStockCompanyEntity.totalStocks);
+    writer.writeGuidValue("updatedBy", iStockCompanyEntity.updatedBy);
+    writer.writeAdditionalData(iStockCompanyEntity.additionalData);
 }
 /**
  * Serializes information the current object
@@ -1173,7 +1437,7 @@ export function serializeIStockMatchEntity(writer: SerializationWriter, iStockMa
     writer.writeCollectionOfObjectValues<IPlayerEntity>("players", iStockMatchEntity.players, serializeIPlayerEntity);
     writer.writeObjectValue("startingCapital", iStockMatchEntity.startingCapital);
     writer.writeNumberValue("status", iStockMatchEntity.status);
-    writer.writeCollectionOfObjectValues<IStockCompany>("stockCompanies", iStockMatchEntity.stockCompanies, serializeIStockCompany);
+    writer.writeCollectionOfObjectValues<IStockCompanyEntity>("stockCompanies", iStockMatchEntity.stockCompanies, serializeIStockCompanyEntity);
     writer.writeGuidValue("updatedBy", iStockMatchEntity.updatedBy);
     writer.writeAdditionalData(iStockMatchEntity.additionalData);
 }
@@ -1192,6 +1456,18 @@ export function serializeProblemDetails(writer: SerializationWriter, problemDeta
     writer.writeStringValue("title", problemDetails.title);
     writer.writeStringValue("type", problemDetails.type);
     writer.writeAdditionalData(problemDetails.additionalData);
+}
+/**
+ * Serializes information the current object
+ * @param isSerializingDerivedType A boolean indicating whether the serialization is for a derived type.
+ * @param UpdateMatchInvitationRequest The instance to serialize from.
+ * @param writer Serialization writer to use to serialize this model
+ */
+// @ts-ignore
+export function serializeUpdateMatchInvitationRequest(writer: SerializationWriter, updateMatchInvitationRequest: Partial<UpdateMatchInvitationRequest> | undefined | null = {}, isSerializingDerivedType: boolean = false) : void {
+    if (!updateMatchInvitationRequest || isSerializingDerivedType) { return; }
+    writer.writeNumberValue("status", updateMatchInvitationRequest.status);
+    writer.writeAdditionalData(updateMatchInvitationRequest.additionalData);
 }
 /**
  * Serializes information the current object
@@ -1217,6 +1493,12 @@ export function serializeUpdateUsernameSelfRequest(writer: SerializationWriter, 
     if (!updateUsernameSelfRequest || isSerializingDerivedType) { return; }
     writer.writeStringValue("username", updateUsernameSelfRequest.username);
     writer.writeAdditionalData(updateUsernameSelfRequest.additionalData);
+}
+export interface UpdateMatchInvitationRequest extends AdditionalDataHolder, Parsable {
+    /**
+     * The status property
+     */
+    status?: number | null;
 }
 export interface UpdateUsernameSelfCommandResponse extends AdditionalDataHolder, Parsable {
     /**
